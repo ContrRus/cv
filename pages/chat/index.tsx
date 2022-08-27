@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import styles from "./styles.module.css";
 const ChatComponent = () => {
   const [messages, setMessages] = useState([]);
