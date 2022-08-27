@@ -16,7 +16,7 @@ const ChatComponent = () => {
 
   const connect = () => {
     //ws://localhost:5000
-    socket.current = new WebSocket("ws://cv-project-server.herokuapp.com/");
+    socket.current = new WebSocket("wss://cv-project-server.herokuapp.com/");
 
     socket.current.onopen = () => {
       setConnected(true);
