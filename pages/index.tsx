@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ChatComponent from './chat'
+import CvPage from './cv'
 import SnakeGame from  './snake-game'
 
 const Home: NextPage = () => {
@@ -15,7 +16,8 @@ const Home: NextPage = () => {
       </Head>
 
       {/* <SnakeGame></SnakeGame> */}
-      <ChatComponent></ChatComponent>
+      {/* <ChatComponent></ChatComponent> */}
+      <CvPage></CvPage>
     
     </>
   )
