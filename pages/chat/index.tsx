@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+
 import styles from "./styles.module.css";
 const ChatComponent = () => {
   const [messages, setMessages] = useState([]);
+  const [userEntered, setUserEntered] = useState(false);
   const [value, setValue] = useState("");
   const socket: any = useRef();
   const [connected, setConnected] = useState(false);
@@ -17,7 +20,7 @@ const ChatComponent = () => {
   const connect = () => {
     //ws://localhost:5000
     socket.current = new WebSocket("wss://cv-project-server.herokuapp.com/");
-
+    setUserEntered(true);
     socket.current.onopen = () => {
       setConnected(true);
       const message = {
@@ -28,12 +31,12 @@ const ChatComponent = () => {
       socket.current.send(JSON.stringify(message));
       console.log("Connection is established");
     };
-    socket.current.onmessage = (event:any) => {
+    socket.current.onmessage = (event: any) => {
       console.log("event socket.current.onmessage", event);
 
       const message = JSON.parse(event.data);
 
-      setMessages((prev:any) => [message, ...prev]);
+      setMessages((prev: any) => [message, ...prev]);
     };
     socket.current.onclose = () => {
       console.log("connection is closed");
@@ -81,12 +84,20 @@ const ChatComponent = () => {
             </div>
             <div className="mb-6 text-center">
               <button
+                disabled={userEntered}
                 onClick={connect}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                  userEntered && "cursor-not-allowed opacity-50"
+                } `}
               >
                 Log In
               </button>
             </div>
+            {userEntered && (
+              <div className="flex justify-center">
+                <Image src="/spinner.svg" width={30} height={30}></Image>
+              </div>
+            )}
           </div>
         </div>
       </div>
