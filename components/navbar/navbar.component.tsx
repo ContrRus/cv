@@ -13,7 +13,7 @@ export const NavBarComponent = () => {
     }
   };
   return (
-    <nav className="container">
+    <nav className="container ">
       <ul className="flex justify-start py-2 hidden sm:flex">
         <li className="ml-2">
           <Link href="/cv">
@@ -51,7 +51,7 @@ export const NavBarComponent = () => {
         {
           <div
             ref={burgerMenuRef}
-            className={`absolute h-full w-screen z-10 bg-mainBlue ${
+            className={`absolute  h-screen w-screen z-10 bg-mainBlue ${
               showBurgerMenu
                 ? styles["scale-in-hor-left"]
                 : styles["scale-out-hor-left"]

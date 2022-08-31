@@ -1,15 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import useInterval from "../../src/useInterval";
 import { Directions } from "./types";
-import _ from "lodash";
+import _, { indexOf } from "lodash";
 import styles from "./snake-game.module.css";
 import Image from "next/image";
 import { Gestures } from "react-gesture-handler";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import { Backdrop } from "@mui/material";
 
 const SnakeGameComponent = () => {
-  const CANVAS_SIZE = [800, 800];
+  // let CANVAS_SIZE = [800, 800];
+  
+  const [CANVAS_SIZE,setCANVAS_SIZE] = useState([800, 800])
   const SNAKE_START = [
     [8, 7],
     [8, 8],
@@ -25,6 +28,7 @@ const SnakeGameComponent = () => {
     39: [1, 0], // right
   };
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mainContainerRef = useRef(null)
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
   const [dir, setDir] = useState([0, -1]);
@@ -43,7 +47,14 @@ const SnakeGameComponent = () => {
     context.fillRect(apple[0], apple[1], 1, 1);
   }, [snake, apple, gameOver]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("mainContainerRef",mainContainerRef.current.offsetWidth);
+    if(mainContainerRef.current.offsetWidth < 641) {
+      
+      setCANVAS_SIZE([500,600])
+    }
+    
+  }, []);
 
   const startGame = () => {
     console.log(" canvasRef.current", canvasRef.current);
@@ -69,7 +80,7 @@ const SnakeGameComponent = () => {
   };
 
   const checkCollision = (piece, snk = snake) => {
-    console.log("piece", piece);
+    // console.log("piece", piece);
 
     if (
       piece[0] * SCALE >= CANVAS_SIZE[0] ||
@@ -134,28 +145,58 @@ const SnakeGameComponent = () => {
     keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
   };
   const moveSnakeMobile = (event) => {
+    console.log("event", event);
     const { type } = event;
-    if (type === "panup" && _.isEqual(DIRECTIONS[40], dir)) {
-      return;
-    } else if (type === "pandown" && _.isEqual(DIRECTIONS[38], dir)) {
-      return;
-    } else if (type === "panleft" && _.isEqual(DIRECTIONS[39], dir)) {
-      return;
-    } else if (type === "panright" && _.isEqual(DIRECTIONS[37], dir)) {
-      return;
-    }
+    console.log(type);
+
+    // if (type === "panup") {
+    //   if (_.isEqual(DIRECTIONS[40], dir)) {
+    //     // return;
+    //   } else {
+    //     setDir((pV) => DIRECTIONS[38]);
+    //   }
+    // } else if (type === "pandown") {
+    //   if (_.isEqual(DIRECTIONS[38], dir)) {
+    //     // return;
+    //   } else {
+    //     setDir((pv) => DIRECTIONS[40]);
+    //   }
+    // } else if (type === "panleft") {
+    //   if (_.isEqual(DIRECTIONS[39], dir)) {
+    //     // return;
+    //   } else {
+    //     setDir((pv) => DIRECTIONS[37]);
+    //   }
+    // } else if (type === "panright") {
+    //   if (_.isEqual(DIRECTIONS[37], dir)) {
+    //     // return;
+    //   } else {
+    //     setDir((pv) => DIRECTIONS[39]);
+    //   }
+    // }
+
+    // if (type === "panup" && _.isEqual(DIRECTIONS[40], dir)) {
+    //   return;
+    // } else if (type === "pandown" && _.isEqual(DIRECTIONS[38], dir)) {
+    //   return;
+    // } else if (type === "panleft" && _.isEqual(DIRECTIONS[39], dir)) {
+    //   return;
+    // } else if (type === "panright" && _.isEqual(DIRECTIONS[37], dir)) {
+    //   return;
+    // }
     switch (type) {
       case "panup":
-        setDir(DIRECTIONS["38"]);
+        setDir((pV) => DIRECTIONS[38]);
         break;
+
       case "pandown":
-        setDir(DIRECTIONS["40"]);
+        setDir((pv) => DIRECTIONS[40]);
         break;
       case "panleft":
-        setDir(DIRECTIONS["37"]);
+        setDir((pv) => DIRECTIONS[37]);
         break;
       case "panright":
-        setDir(DIRECTIONS["39"]);
+        setDir((pv) => DIRECTIONS[39]);
         break;
     }
     // keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
@@ -185,8 +226,10 @@ const SnakeGameComponent = () => {
       }}
     >
       <div
-        className=" block md:flex container  md:w-screen"
+        className=" block md:flex container md:w-screen"
         tabIndex={0}
+        ref={mainContainerRef}
+        // style={{margin: '0 auto'}}
         onKeyDown={(e) => moveSnake(e)}
       >
         <canvas
@@ -197,18 +240,6 @@ const SnakeGameComponent = () => {
         ></canvas>
 
         <div className="ml-5 flex w-screen">
-          {gameOver && (
-            <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 flex flex-col justify-center items-center text-7xl">
-              <p>GAME IS OVER!</p>
-              <p>Your score is {points}</p>
-              <button
-                className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
-                onClick={startGame}
-              >
-                Try again
-              </button>
-            </div>
-          )}
           <div className="flex flex-col items-center justify-center w-full ">
             <p className="text-center text-3xl font-bold mb-2">
               Your points are {points}
@@ -229,7 +260,27 @@ const SnakeGameComponent = () => {
               Start Game
             </button>
           </div>
+        
         </div>
+        {gameOver && (
+            <Backdrop
+              sx={{ backgroundColor: "#FFF", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={gameOver}
+              style={{backgroundColor:'black',display:'flex', justifyContent: 'center'}}
+              //   onClick={handleClose}
+            >
+              <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-7xl">
+                <p>GAME IS OVER!</p>
+                <p>Your score is {points}</p>
+                <button
+                  className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
+                  onClick={startGame}
+                >
+                  Try again
+                </button>
+              </div>
+            </Backdrop>
+          )}
       </div>
     </Gestures>
   );
