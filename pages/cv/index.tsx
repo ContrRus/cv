@@ -24,7 +24,10 @@ const CvPage = () => {
         <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded px-2 py-2 relative -right-2">
           <p className="text-lg">
             Hi there! This page is simple cv. Feel free to check out my others
-            project using navigation{" "}
+            project using navigation. Also check out 
+            <a className="text-blue-500" href="https://dict-front.herokuapp.com/" target="blank">
+           <span className="ml-1">my  dictionary app</span> 
+            </a>
           </p>
         </div>
       </header>
@@ -60,8 +63,10 @@ const CvPage = () => {
                   alt="post"
                   className={`${styles["contact-icons"]} `}
                 ></Image>
-                <a href="mailto:knightn1ofamber@gmail.com" >
-                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">knightn1ofamber@gmail.com</p>
+                <a href="mailto:knightn1ofamber@gmail.com">
+                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">
+                    knightn1ofamber@gmail.com
+                  </p>
                 </a>
               </li>
               <li className="text-xl mb-4 flex items-center">
@@ -73,7 +78,9 @@ const CvPage = () => {
                   className={`${styles["contact-icons"]} `}
                 ></Image>
                 <a href="tel:+7 705 389 11 51">
-                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">+7 705 389 11 51</p>
+                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">
+                    +7 705 389 11 51
+                  </p>
                 </a>
               </li>
             </ul>
