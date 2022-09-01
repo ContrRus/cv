@@ -17,17 +17,25 @@ export const NavBarComponent = () => {
       <ul className="flex justify-start py-2 hidden sm:flex">
         <li className="ml-2">
           <Link href="/cv">
-            <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white"> CV</button>
+            <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+              {" "}
+              CV
+            </button>
           </Link>
         </li>
         <li className="ml-2">
           <Link href="/snake-game">
-            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">Snake Game</button>
+            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+              Snake Game
+            </button>
           </Link>
         </li>
         <li className="ml-2">
           <Link href="/chat">
-            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white"> Simple chat</button>
+            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+              {" "}
+              Simple chat
+            </button>
           </Link>
         </li>
       </ul>
@@ -75,7 +83,10 @@ export const NavBarComponent = () => {
                 <Link href="/snake-game">
                   <button
                     className="border px-2 text-white text-5xl "
-                    onClick={() => setShowBurgerMenu(false)}
+                    onClick={() => {
+                      checkOverFlow();
+                      setShowBurgerMenu(false);
+                    }}
                   >
                     Snake Game
                   </button>
@@ -85,9 +96,11 @@ export const NavBarComponent = () => {
                 <Link href="/chat">
                   <button
                     className="border px-2 text-white text-5xl "
-                    onClick={() => setShowBurgerMenu(false)}
+                    onClick={() => {
+                      checkOverFlow();
+                      setShowBurgerMenu(false);
+                    }}
                   >
-                    {" "}
                     Simple chat
                   </button>
                 </Link>
