@@ -63,11 +63,11 @@ const ChatComponent = () => {
 
   if (!connected) {
     return (
-      <div className={`${styles["main-backgorund-inverse"]}  `}>
+      <div className={`${styles["main-backgorund-inverse"]} container lg:max-w-screen-lg max-w-lg h-screen `}>
         <h1 className="text-5xl font-bold text-white py-2 text-center pt-4 mb-6">
           Welcome to Chat
         </h1>
-        <p className="text-center text-3xl text-white mx-auto w-1/2 mb-2">
+        <p className="text-center text-3xl text-white mx-auto w-1/2 mb-10">
           This is simple chat app to chat with your friends, ask them to open
           this page and have a nice chat.
         </p>
@@ -108,7 +108,7 @@ const ChatComponent = () => {
     );
   }
   return (
-    <div className={`${styles.mainBackgorund} w-full flex justify-center`}>
+    <div className={`${styles.mainBackgorund} lg:max-w-screen-lg max-w-lg h-screen mx-auto flex justify-center`}>
       <div>
         <h1 className="text-5xl text-white font-bold py-2 text-center mt-10 mb-6">
           Simple Chat

@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 const CvPage = () => {
   return (
-    <div className="flex-row container lg:max-w-screen-lg bg-mainBlue  max-w-lg h-screen  ">
+    <div className="flex-row container lg:max-w-screen-lg max-w-lg h-screen bg-mainBlue    ">
       <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
         <div className="mb-3 bg-mainBlue">
           <h1 className="text-5xl text-center text-white  font-bold mb-2">
