@@ -11,8 +11,8 @@ import { Backdrop } from "@mui/material";
 
 const SnakeGameComponent = () => {
   // let CANVAS_SIZE = [800, 800];
-  
-  const [CANVAS_SIZE,setCANVAS_SIZE] = useState([800, 800])
+
+  const [CANVAS_SIZE, setCANVAS_SIZE] = useState([800, 800]);
   const SNAKE_START = [
     [8, 7],
     [8, 8],
@@ -28,7 +28,7 @@ const SnakeGameComponent = () => {
     39: [1, 0], // right
   };
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mainContainerRef = useRef(null)
+  const mainContainerRef = useRef(null);
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
   const [dir, setDir] = useState([0, -1]);
@@ -48,12 +48,10 @@ const SnakeGameComponent = () => {
   }, [snake, apple, gameOver]);
 
   useEffect(() => {
-    console.log("mainContainerRef",mainContainerRef.current.offsetWidth);
-    if(mainContainerRef.current.offsetWidth < 641) {
-      
-      setCANVAS_SIZE([500,600])
+    console.log("mainContainerRef", mainContainerRef.current.offsetWidth);
+    if (mainContainerRef.current.offsetWidth < 641) {
+      setCANVAS_SIZE([500, 600]);
     }
-    
   }, []);
 
   const startGame = () => {
@@ -241,9 +239,8 @@ const SnakeGameComponent = () => {
 
         <div className="ml-5 flex w-screen">
           <div className="flex flex-col items-center justify-center w-full ">
-            <p className="text-center text-3xl font-bold mb-2">
-              Your points are {points}
-            </p>
+            <p className="text-2xl">This is snake game</p>
+
             <div className="mb-2">
               <div>
                 <p className="flex items-center text-lg">
@@ -259,28 +256,37 @@ const SnakeGameComponent = () => {
             >
               Start Game
             </button>
+            <p className="text-center text-3xl font-bold mb-2">
+              Your points are {points}
+            </p>
           </div>
-        
         </div>
         {gameOver && (
-            <Backdrop
-              sx={{ backgroundColor: "#FFF", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-              open={gameOver}
-              style={{backgroundColor:'black',display:'flex', justifyContent: 'center'}}
-              //   onClick={handleClose}
-            >
-              <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-7xl">
-                <p>GAME IS OVER!</p>
-                <p>Your score is {points}</p>
-                <button
-                  className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
-                  onClick={startGame}
-                >
-                  Try again
-                </button>
-              </div>
-            </Backdrop>
-          )}
+          <Backdrop
+            sx={{
+              backgroundColor: "#FFF",
+              zIndex: (theme) => theme.zIndex.drawer + 1,
+            }}
+            open={gameOver}
+            style={{
+              backgroundColor: "black",
+              display: "flex",
+              justifyContent: "center",
+            }}
+            //   onClick={handleClose}
+          >
+            <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-7xl">
+              <p>GAME IS OVER!</p>
+              <p>Your score is {points}</p>
+              <button
+                className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
+                onClick={startGame}
+              >
+                Try again
+              </button>
+            </div>
+          </Backdrop>
+        )}
       </div>
     </Gestures>
   );

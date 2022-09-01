@@ -63,10 +63,14 @@ const ChatComponent = () => {
 
   if (!connected) {
     return (
-      <div className={`${styles["main-backgorund"]} mt-10 bg-green`}>
-        <h1 className="text-5xl font-bold py-2 text-center mt-0 mb-6">
+      <div className={`${styles["main-backgorund-inverse"]}  `}>
+        <h1 className="text-5xl font-bold text-white py-2 text-center pt-4 mb-6">
           Welcome to Chat
         </h1>
+        <p className="text-center text-3xl text-white mx-auto w-1/2 mb-2">
+          This is simple chat app to chat with your friends, ask them to open
+          this page and have a nice chat.
+        </p>
         <div className=" w-full flex justify-center  items-center">
           <div className=" bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-2 text-center  ">
@@ -106,7 +110,7 @@ const ChatComponent = () => {
   return (
     <div className={`${styles.mainBackgorund} w-full flex justify-center`}>
       <div>
-        <h1 className="text-5xl font-bold py-2 text-center mt-10 mb-6">
+        <h1 className="text-5xl text-white font-bold py-2 text-center mt-10 mb-6">
           Simple Chat
         </h1>
         <div className="flex flex-wrap flex-row justify-center">
@@ -115,7 +119,7 @@ const ChatComponent = () => {
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage(e)}
             type="text"
-            className="mt-10 shadow appearance-none border rounded w-full py-2 px-3 text-green-700 leading-tight  outline-green-500 mb-2"
+            className="mt-10 shadow appearance-none border rounded w-full py-2 px-3  leading-tight  outline-mainBlue mb-2"
             placeholder="Enter your message"
           />
           <button

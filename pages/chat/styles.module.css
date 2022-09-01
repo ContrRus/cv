@@ -1,4 +1,8 @@
 .mainBackgorund {
-  background: linear-gradient(to left top, rgb(84, 28, 130), rgb(170, 66, 255));
+  background: linear-gradient(to left top, #1f4258, #3b6b88);
+  height: 100vh;
+}
+.main-backgorund-inverse {
+  background: linear-gradient(to left top, #3b6b88, #1f4258);
   height: 100vh;
 }

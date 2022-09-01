@@ -7,10 +7,10 @@ const CvPage = () => {
     <div className="flex-row container lg:max-w-screen-lg bg-mainBlue  max-w-lg h-screen  ">
       <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
         <div className="mb-3 bg-mainBlue">
-          <h1 className="text-5xl text-center bg-gray-200 font-bold mb-2">
+          <h1 className="text-5xl text-center text-white  font-bold mb-2">
             Ruslan Shiyanov
           </h1>
-          <h2 className="text-3xl bg-gray-200 mw-fit-content text-center font-bold">
+          <h2 className="text-3xl text-white mw-fit-content text-center font-bold">
             Web Developer
           </h2>
           <picture className="object-scale-down justify-center flex mt-5">
@@ -21,7 +21,7 @@ const CvPage = () => {
             />
           </picture>
         </div>
-        <div className="bg-gray-300 flex h-min my-auto items-center justify-center">
+        <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded px-2 py-2 relative -right-2">
           <p className="text-lg">
             Hi there! This page is simple cv. Feel free to check out my others
             project using navigation{" "}
@@ -34,7 +34,7 @@ const CvPage = () => {
           <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2">
             About me
           </h3>
-          <p className="text-base text-gray-300">
+          <p className="text-base text-white">
             Super eager to embrace new challenges and opportunities in web
             development, have ongoing self-studying, and crave for getting more
             practical experience! I’m currently employed at LLP Devir as a Web
@@ -46,12 +46,12 @@ const CvPage = () => {
             have amassed my professional and motivational skills.
           </p>
         </div>
-        <div className="bg-gray-200 px-2 w-full flex flex-col  rounded h-min my-auto">
-          <h3 className="py-2 px-2 text-xl bg-gray-200 text-mainBlue font-bold  ">
+        <div className="bg-white px-2 w-full flex flex-col  rounded h-min my-auto relative -right-2 ">
+          <h3 className="py-2 px-2 text-xl bg-white text-mainBlue font-bold  ">
             Contacts
           </h3>
-          <div className="justify-self-center mt-2 ">
-            <ul className="flex-col justify-center justify-items-center">
+          <div className=" mt-2 ">
+            <ul className="flex-col flex justify-center items-center">
               <li className="mb-5 text-xl flex items-center">
                 <Image
                   width={20}
@@ -60,17 +60,21 @@ const CvPage = () => {
                   alt="post"
                   className={`${styles["contact-icons"]} `}
                 ></Image>
-                <p className="ml-2 text-base ">knightn1ofamber@gmail.com</p>
+                <a href="mailto:knightn1ofamber@gmail.com" >
+                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">knightn1ofamber@gmail.com</p>
+                </a>
               </li>
               <li className="text-xl mb-4 flex items-center">
                 <Image
                   width={20}
                   height={20}
-                  src="/phone.svg"
+                  src="/telephone.svg"
                   alt="post"
                   className={`${styles["contact-icons"]} `}
                 ></Image>
-                <p className="ml-2 text-base">+7 705 389 11 51</p>
+                <a href="tel:+7 705 389 11 51">
+                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">+7 705 389 11 51</p>
+                </a>
               </li>
             </ul>
           </div>
@@ -80,7 +84,7 @@ const CvPage = () => {
           <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 ">
             Education
           </h3>
-          <div className="text-base bg-mainBlue text-gray-300">
+          <div className="text-base bg-mainBlue text-white">
             <ul>
               <li className="mb-2">
                 <h4 className="text-base">ESIL University: 2020 - 2022</h4>
@@ -95,8 +99,8 @@ const CvPage = () => {
             </ul>
           </div>
         </div>
-        <div className="bg-gray-200 px-2 rounded">
-          <h3 className="py-2 px-2 text-xl bg-gray-200 text-mainBlue font-bold mb-2 ">
+        <div className="bg-white px-2 rounded relative -right-2">
+          <h3 className="py-2 px-2 text-xl bg-white text-mainBlue font-bold mb-2 ">
             Skills
           </h3>
           <div className="flex-row flex justify-center flex-wrap gap-7">
