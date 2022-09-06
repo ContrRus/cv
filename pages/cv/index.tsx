@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Knob } from "primereact/knob";
 import styles from "./styles.module.css";
+// import { ReactComponent  as HatIcon } from "../../public/graduation-hat.svg";
 
 const CvPage = () => {
   return (
@@ -24,9 +25,13 @@ const CvPage = () => {
         <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded px-2 py-2 relative -right-2">
           <p className="text-lg">
             Hi there! This page is simple cv. Feel free to check out my others
-            project using navigation. Also check out 
-            <a className="text-blue-500" href="https://dict-front.herokuapp.com/" target="blank">
-           <span className="ml-1">my  dictionary app</span> 
+            project using navigation. Also check out
+            <a
+              className="text-blue-500"
+              href="https://dict-front.herokuapp.com/"
+              target="blank"
+            >
+              <span className="ml-1">my dictionary app</span>
             </a>
           </p>
         </div>
@@ -93,13 +98,33 @@ const CvPage = () => {
           </h3>
           <div className="text-base bg-mainBlue text-white">
             <ul>
-              <li className="mb-2">
-                <h4 className="text-base">ESIL University: 2020 - 2022</h4>
+              <li className="mb-2 ">
+                <h4 className="text-base flex items-center">
+                  {/* <svg xmlns="../../public/graduation-hat.svg" fill="red"></svg> */}
+                  <Image
+                    src={"/graduation-hat.svg"}
+                    width={50}
+                    height={50}
+                    alt="hat"
+                    className={styles["svg-change-color"]}
+                  ></Image>
+                  ESIL University: 2020 - 2022
+                </h4>
                 <p className="text-2xl">Information Systems</p>
               </li>
 
               <li>
-                <h4 className="text-base">Lingua: 2013-2017</h4>
+                <h4 className="text-base flex items-center">
+                  <Image
+                    src={"/graduation-hat.svg"}
+                    width={50}
+                    height={50}
+                    alt="hat"
+                    className={styles["svg-change-color"]}
+                    // style={{background:'white'}}
+                  ></Image>
+                  Lingua: 2013-2017
+                </h4>
 
                 <p className="text-2xl">Foreign Philology</p>
               </li>
@@ -118,7 +143,7 @@ const CvPage = () => {
                 width={100}
                 height={100}
                 alt="js"
-                className={`${styles["rotate-center"]} `}
+                className={`${styles["rotate-center"]}`}
               ></Image>
             </div>
             <div className="flex-row justify-center">

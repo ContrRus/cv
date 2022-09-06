@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         mainBlue: "#1F4258",
       },
+      gridTemplateRows: {
+        "custom-min-7-max-auto": "minmax(7rem,auto) repeat(5,6rem)",
+      },
       container: {
         center: true,
         // padding: {

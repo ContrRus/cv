@@ -45,6 +45,13 @@ export const NavBarComponent = () => {
             </button>
           </Link>
         </li>
+        <li className="ml-2">
+          <Link href="/calculator">
+            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+              Calculator
+            </button>
+          </Link>
+        </li>
       </ul>
       <div className="sm:hidden">
         <div
@@ -122,6 +129,19 @@ export const NavBarComponent = () => {
                     }}
                   >
                     Infinite scroll
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculator">
+                  <button
+                    className="border px-2 text-white text-5xl "
+                    onClick={() => {
+                      checkOverFlow();
+                      setShowBurgerMenu(false);
+                    }}
+                  >
+                    Calculator
                   </button>
                 </Link>
               </li>
