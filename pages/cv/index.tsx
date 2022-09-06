@@ -34,7 +34,7 @@ const CvPage = () => {
       <main className="grid justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 bg-mainBlue">
         <div className=" bg-mainBlue p-2 py-10 overflow-hidden">
           {/* <h3 className="text-xl font-bold bg-white -ml-2 mr-10 pr-0 pl-5 py-2 border rounded mb-2">About me</h3> */}
-          <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2">
+          <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 text-mainBlue">
             About me
           </h3>
           <p className="text-base text-white">
@@ -88,7 +88,7 @@ const CvPage = () => {
         </div>
         <div className=" bg-mainBlue p-2 py-10 w-full overflow-hidden">
           {/* <h3 className="text-xl font-bold bg-white -ml-2 mr-10 pr-0 pl-5 py-2 border rounded mb-2">About me</h3> */}
-          <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 ">
+          <h3 className="text-xl text-mainBlue font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 ">
             Education
           </h3>
           <div className="text-base bg-mainBlue text-white">

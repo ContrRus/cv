@@ -38,6 +38,13 @@ export const NavBarComponent = () => {
             </button>
           </Link>
         </li>
+        <li className="ml-2">
+          <Link href="/infinite-scroll">
+            <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+              Infinite scroll
+            </button>
+          </Link>
+        </li>
       </ul>
       <div className="sm:hidden">
         <div
@@ -102,6 +109,19 @@ export const NavBarComponent = () => {
                     }}
                   >
                     Simple chat
+                  </button>
+                </Link>
+              </li>
+              <li className="ml-2">
+                <Link href="/infinite-scroll">
+                  <button
+                    className="border px-2 text-white text-5xl "
+                    onClick={() => {
+                      checkOverFlow();
+                      setShowBurgerMenu(false);
+                    }}
+                  >
+                    Infinite scroll
                   </button>
                 </Link>
               </li>
