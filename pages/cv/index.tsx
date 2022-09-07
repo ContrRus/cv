@@ -35,7 +35,7 @@ const CvPage = () => {
             >
               <span className="ml-1 mr-1">my dictionary app</span>
             </a>
-            that was written in Angular 12 + LoopBack 4. Don't worry if loading
+            that was written in Angular 12 + LoopBack 4. Do not worry if loading
             takes too long it is because app is being hosted on heroku and it
             needs some time to start up.
           </p>
