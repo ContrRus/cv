@@ -34,6 +34,7 @@ const SnakeGameComponent = () => {
   const [dir, setDir] = useState([0, -1]);
   const [speed, setSpeed] = useState<null | number>(null);
   const [gameOver, setGameOver] = useState(false);
+  const [previosSpeed, setPreviosSpeed] = useState(0);
 
   useEffect(() => {
     // console.log("canvasRef", canvasRef);
@@ -244,17 +245,37 @@ const SnakeGameComponent = () => {
             <div className="mb-2">
               <div>
                 <p className="flex items-center text-lg">
-                  Use <Image src="/Arrows.svg" width={150} height={100}></Image>
-                  to navigate
+                  Use
+                  <Image
+                    className=""
+                    src="/Arrows.svg"
+                    width={150}
+                    height={100}
+                    alt="arrows"
+                  ></Image>{" "}
+                  or gestures to navigate
                 </p>
               </div>
             </div>
 
             <button
-              className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max"
+              className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max mb-2"
               onClick={startGame}
             >
               Start Game
+            </button>
+            <button
+              className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max"
+              onClick={() => {
+                if (speed === null) {
+                  setSpeed(previosSpeed);
+                } else {
+                  setPreviosSpeed(speed);
+                  setSpeed(null);
+                }
+              }}
+            >
+              {speed !== null ? "Pause Game" : "Resume Game"}
             </button>
             <p className="text-center text-3xl font-bold mb-2">
               Your points are {points}

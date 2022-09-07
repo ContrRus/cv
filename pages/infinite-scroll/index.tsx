@@ -66,6 +66,11 @@ export const InfiniteScrollPage = () => {
       setPhotosWereDownloaded((pv) => true);
     }
   }, [downloadedImagesQuantity, limit]);
+  useEffect(() => {
+    console.log("images", images);
+
+    setFirstLoadCompleted(true);
+  }, []);
 
   return (
     <div ref={tableWrapperrRef} className="overflow-x-auto relative">
@@ -95,20 +100,25 @@ export const InfiniteScrollPage = () => {
                   className="bg-white border-b-4 dark:bg-gray-800 dark:border-gray-700"
                 >
                   <td className="py-4 px-6">{image.id}</td>
-                  <td className="py-4 px-6 ">{image.title}</td>
+                  <td className="py-4 px-6 text-2xl">{image.title}</td>
                   <td className="py-4 px-6">
                     <Image
                       onLoad={onImageLoad}
                       src={image.url + ".png"}
-                      width={300}
-                      height={200}
+                      width={600}
+                      height={600}
                       alt={image.title}
                     ></Image>
                   </td>
                 </tr>
                 {index === images.length - 1 && !photosWereDonwloaded && (
                   <div className="flex flex-row justify-center mx-auto absolute left-1/2 -translate-x-4">
-                    <Image src="/spinner.svg" width={100} height={100}></Image>
+                    <Image
+                      src="/spinner.svg"
+                      width={100}
+                      height={100}
+                      alt={"Loading..."}
+                    ></Image>
                   </div>
                 )}
               </>
@@ -116,6 +126,16 @@ export const InfiniteScrollPage = () => {
           })}
         </tbody>
       </table>
+      {!images.length && (
+        <div className="flex flex-row justify-center mx-auto ">
+          <Image
+            src="/spinner.svg"
+            width={100}
+            height={100}
+            alt={"Loading..."}
+          ></Image>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { Knob } from "primereact/knob";
+import StatusBarComponent from "../../components/status-bar/status-bar.component";
 import styles from "./styles.module.css";
 // import { ReactComponent  as HatIcon } from "../../public/graduation-hat.svg";
 
 const CvPage = () => {
   return (
-    <div className="flex-row container lg:max-w-screen-lg max-w-lg h-screen bg-mainBlue    ">
+    <div className="flex-row container lg:max-w-screen-md max-w-lg h-screen bg-mainBlue    ">
       <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
         <div className="mb-3 bg-mainBlue">
           <h1 className="text-5xl text-center text-white  font-bold mb-2">
@@ -24,15 +25,19 @@ const CvPage = () => {
         </div>
         <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded px-2 py-2 relative -right-2">
           <p className="text-lg">
-            Hi there! This page is simple cv. Feel free to check out my others
-            project using navigation. Also check out
+            Hi there! This page is simple CV-like project that was written in
+            NextJS. Feel free to check out my other projects using navigation.
+            Also check out
             <a
               className="text-blue-500"
               href="https://dict-front.herokuapp.com/"
               target="blank"
             >
-              <span className="ml-1">my dictionary app</span>
+              <span className="ml-1 mr-1">my dictionary app</span>
             </a>
+            that was written in Angular 12 + LoopBack 4. Don't worry if loading
+            takes too long it is because app is being hosted on heroku and it
+            needs some time to start up.
           </p>
         </div>
       </header>
@@ -60,32 +65,28 @@ const CvPage = () => {
           </h3>
           <div className=" mt-2 ">
             <ul className="flex-col flex justify-center items-center">
-              <li className="mb-5 text-xl flex items-center">
+              <li className="mb-5 text-xl flex items-center hover:font-bold hover:text-mainBlue">
                 <Image
                   width={20}
                   height={20}
-                  src="/mail2.svg"
+                  src="/email.svg"
                   alt="post"
-                  className={`${styles["contact-icons"]} `}
+                  className={`${styles["contact-icons"]} ${styles["svg-change-color"]}  `}
                 ></Image>
                 <a href="mailto:knightn1ofamber@gmail.com">
-                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">
-                    knightn1ofamber@gmail.com
-                  </p>
+                  <p className="ml-2 text-lg  ">knightn1ofamber@gmail.com</p>
                 </a>
               </li>
-              <li className="text-xl mb-4 flex items-center">
+              <li className="text-xl mb-4 flex items-center  hover:font-bold hover:text-mainBlue">
                 <Image
                   width={20}
                   height={20}
                   src="/telephone.svg"
                   alt="post"
-                  className={`${styles["contact-icons"]} `}
+                  className={`${styles["contact-icons"]} ${styles["svg-change-color"]} `}
                 ></Image>
                 <a href="tel:+7 705 389 11 51">
-                  <p className="ml-2 text-lg hover:font-bold hover:text-mainBlue ">
-                    +7 705 389 11 51
-                  </p>
+                  <p className="ml-2 text-lg ">+7 705 389 11 51</p>
                 </a>
               </li>
             </ul>
@@ -129,6 +130,47 @@ const CvPage = () => {
                 <p className="text-2xl">Foreign Philology</p>
               </li>
             </ul>
+            <div className=" mt-5">
+              <h4 className="text-2xl flex items-center mb-2">Languages</h4>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center   mb-2">
+                  <p className="text-base mr-2">Russian</p>
+                  <StatusBarComponent
+                    percentage={100}
+                    width={18.75}
+                    height={0.625}
+                    statusBarHeight={0.625}
+                  />
+                </div>
+                <div className="flex items-center  mb-2">
+                  <p className="text-base mr-2">English</p>
+                  <StatusBarComponent
+                    percentage={80}
+                    width={18.75}
+                    height={0.625}
+                    statusBarHeight={0.625}
+                  />
+                </div>
+                <div className="flex items-center  mb-2">
+                  <p className="text-base mr-2">French</p>
+                  <StatusBarComponent
+                    percentage={60}
+                    width={18.75}
+                    height={0.625}
+                    statusBarHeight={0.625}
+                  />
+                </div>
+                <div className="flex items-center mb-2">
+                  <p className="text-base mr-2">Spanish</p>
+                  <StatusBarComponent
+                    percentage={30}
+                    width={18.75}
+                    height={0.625}
+                    statusBarHeight={0.625}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="bg-white px-2 rounded relative -right-2">

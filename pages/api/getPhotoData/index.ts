@@ -30,6 +30,7 @@ export default async function retrievePhotoData(
     let result = await db
       .collection(collectionName)
       .find({})
+      .sort({ id: 1 })
       .skip(Number(skip))
       .limit(Number(limit))
       .toArray();

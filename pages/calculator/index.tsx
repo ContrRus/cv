@@ -117,6 +117,9 @@ const evaluate = ({ previousOperand, currentOperand, operation }) => {
     case "*":
       computation = prev * current;
       break;
+    case "%":
+      computation = prev % current;
+      break;
   }
   return computation.toString();
 };
@@ -127,7 +130,12 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
 
 const formatOperand = (operand) => {
   if (operand == null) return;
-  // console.log("opefdrand,",operand);
+  console.log("operand,", operand);
+  console.log("type,", typeof operand);
+  if (typeof operand === "number") {
+    operand = new String(operand);
+  }
+
   const [integer, decimal] = operand.split(".");
   if (decimal == null) return INTEGER_FORMATTER.format(integer);
   return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
@@ -149,7 +157,7 @@ const CalculatorPage = () => {
       <div className="grid grid-cols-4 justify-center grid-rows-custom-min-7-max-auto gap4 mt-8 text-lg">
         <div className="col-span-full bg-black/75 flex flex-col items-end justify-around p-3 break-all break-words ">
           <div className="text-white/75 text-2xl">
-            {formatOperand(previousOperand)} {operation}
+            {previousOperand && formatOperand(previousOperand)} {operation}
           </div>
           <div className="text-white text-4xl">
             {formatOperand(currentOperand)}
@@ -184,9 +192,11 @@ const CalculatorPage = () => {
         <OperationButtonComponent operation={"-"} dispatch={dispatch} />
         <DigitButtonComponent digit={"."} dispatch={dispatch} />
         <DigitButtonComponent digit={0} dispatch={dispatch} />
+        <OperationButtonComponent operation={"%"} dispatch={dispatch} />
+
         <button
           onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
-          className="col-span-2 text-3xl border outline-none border-white/75 hover:bg-white/50 focus:bg-white/50"
+          className="col-span-1 text-3xl border outline-none border-white/75 hover:bg-white/50 focus:bg-white/50"
         >
           =
         </button>
