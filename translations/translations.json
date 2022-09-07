@@ -1,0 +1,50 @@
+{
+  "en": {
+    "translation": {
+      "Welcome to React": "Welcome to React and react-i18next",
+      "Web Developer": "Web Developer",
+      "CV_introtext1": "Hi there! This page is a simple CV-like project that was written in NextJS. Feel free to check out my other projects using navigation. ",
+      "CV_introtext2": "Also, check out",
+      "CV_introtext3": "my dictionary app",
+      "CV_introtext4": "that was written in Angular 12 + LoopBack 4. ",
+      "CV_introtext5": "Do not worry if loading takes too long it is because the app is being hosted on the Heroku and it needs some time to start up.",
+      "About_Me": "About me",
+      "About_Me1": "Super eager to embrace new challenges and opportunities in web development, have ongoing self-studying and crave getting more practical experience!",
+      "About_Me2": "I’m currently employed at LLP Devir as a Web Developer. While working there I’m creating and developing web applications for clients and making their pages attractive and functional. In addition to excellent programming and creativity, I rely on extensive knowledge of HTML, CSS, JavaScript, Angular, Node JS , and MongoDB. Through my experience coding and creating/amending web apps, I have amassed my professional and motivational skills.",
+      "Contacts": "Contacts",
+      "Education": "Education",
+      "Information_Systems": "Information Systems",
+      "Foreign_Philology": "Foreign Philology",
+      "Languages": "Languages",
+      "Russian": "Russian",
+      "English": "English",
+      "Spanish": "Spanish",
+      "French": "French",
+      "Skills":"Skills"
+    }
+  },
+  "fr": {
+    "translation": {
+      "Welcome to React": "Mais en fait c'est en francais putain allons-y",
+      "Web Developer": "Développeur Web",
+      "CV_introtext1": "Salut! Cette page est un projet simple de type CV qui a été écrit dans Nextjs. N'hésitez pas à consulter mes autres projets en utilisant la navigation.",
+      "CV_introtext2": "Consultez également",
+      "CV_introtext3": "mon application de dictionnaire",
+      "CV_introtext4": "qui a été écrite dans Angular 12 + LoopBack 4. ",
+      "CV_introtext5": "Ne vous inquiétez pas si le chargement prend trop de temps,  c'est parce que l'application est hébergée sur le Heroku et qu'elle a besoin de temps pour démarre.",
+      "About_Me": "À propos de moi",
+      "About_Me1": "Super désireux d'embrasser de nouveaux défis et opportunités dans le développement Web, d'auto-étudier en continu et d'avoir envie d'acquérir plus d'expérience pratique!",
+      "About_Me2": "Je suis actuellement employé chez LLP Devir en tant que développeur Web. Tout en travaillant là-bas, je crée et développe des applications Web pour les clients et je rends leurs pages attrayantes et fonctionnelles. En plus d'une excellente programmation et créativité, je m'appuie sur une connaissance approfondie de HTML, CSS, JavaScript, Angular, Node JS et MongoDB. Grâce à mon expérience en codage et en création/modification d'applications Web, j'ai accumulé mes compétences professionnelles et motivationnelles.",
+      "Contacts": "Informations Personnelles",
+      "Education": "Éducation",
+      "Information_Systems": "Systèmes d'information",
+      "Foreign_Philology": "Philologie Étrangère",
+      "Languages": "Langues",
+      "Russian": "Russe",
+      "English": "Anglais",
+      "Spanish": "Espagnol",
+      "French": "Français",
+      "Skills":"Compétence"
+    }
+  }
+}

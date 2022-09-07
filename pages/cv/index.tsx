@@ -2,9 +2,16 @@ import Image from "next/image";
 import { Knob } from "primereact/knob";
 import StatusBarComponent from "../../components/status-bar/status-bar.component";
 import styles from "./styles.module.css";
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 // import { ReactComponent  as HatIcon } from "../../public/graduation-hat.svg";
-
+import transaltions from "../../translations/translations.json";
+i18n.use(initReactI18next).init({
+  resources: transaltions,
+  fallbackLng: "en",
+});
 const CvPage = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex-row container lg:max-w-screen-md max-w-lg h-screen bg-mainBlue    ">
       <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
@@ -12,8 +19,9 @@ const CvPage = () => {
           <h1 className="text-5xl text-center text-white  font-bold mb-2">
             Ruslan Shiyanov
           </h1>
+          {/* <h2>{t('Welcome to React')}</h2>; */}
           <h2 className="text-3xl text-white mw-fit-content text-center font-bold">
-            Web Developer
+            {t("Web Developer")}
           </h2>
           <picture className="object-scale-down justify-center flex mt-5">
             <source srcSet="/avatar.jpeg" type="image/jpeg" />
@@ -23,21 +31,19 @@ const CvPage = () => {
             />
           </picture>
         </div>
-        <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded px-2 py-2 relative -right-2">
-          <p className="text-lg">
-            Hi there! This page is simple CV-like project that was written in
-            NextJS. Feel free to check out my other projects using navigation.
-            Also check out
+        <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded  px-2 py-2 relative ">
+          <p className="text-lg font-medium text-center">
+            {t("CV_introtext1")}
+            {t("CV_introtext2")}
             <a
               className="text-blue-500"
               href="https://dict-front.herokuapp.com/"
               target="blank"
             >
-              <span className="ml-1 mr-1">my dictionary app</span>
+              <span className="ml-1 mr-1"> {t("CV_introtext3")}</span>
             </a>
-            that was written in Angular 12 + LoopBack 4. Do not worry if loading
-            takes too long it is because app is being hosted on heroku and it
-            needs some time to start up.
+            {t("CV_introtext4")}
+            {t("CV_introtext5")}
           </p>
         </div>
       </header>
@@ -45,23 +51,17 @@ const CvPage = () => {
         <div className=" bg-mainBlue p-2 py-10 overflow-hidden">
           {/* <h3 className="text-xl font-bold bg-white -ml-2 mr-10 pr-0 pl-5 py-2 border rounded mb-2">About me</h3> */}
           <h3 className="text-xl font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 text-mainBlue">
-            About me
+            {t("About_Me")}
           </h3>
-          <p className="text-base text-white">
-            Super eager to embrace new challenges and opportunities in web
-            development, have ongoing self-studying, and crave for getting more
-            practical experience! I’m currently employed at LLP Devir as a Web
-            Developer. While working there I’m creating and developing websites
-            for clients, and making their pages attractive and functional. In
-            addition to excellent programming and creativity, I rely on
-            extensive knowledge of HTML, CSS, JavaScript, Angular, Node JS, and
-            MongoDB. Through my experience coding and creating/amending sites, I
-            have amassed my professional and motivational skills.
-          </p>
+          <div className="text-base text-white text-center">
+            <p>{t("About_Me1")}</p>
+
+            <p>{t("About_Me2")}</p>
+          </div>
         </div>
         <div className="bg-white px-2 w-full flex flex-col  rounded h-min my-auto relative -right-2 ">
           <h3 className="py-2 px-2 text-xl bg-white text-mainBlue font-bold  ">
-            Contacts
+            {t("Contacts")}
           </h3>
           <div className=" mt-2 ">
             <ul className="flex-col flex justify-center items-center">
@@ -95,7 +95,7 @@ const CvPage = () => {
         <div className=" bg-mainBlue p-2 py-10 w-full overflow-hidden">
           {/* <h3 className="text-xl font-bold bg-white -ml-2 mr-10 pr-0 pl-5 py-2 border rounded mb-2">About me</h3> */}
           <h3 className="text-xl text-mainBlue font-bold bg-white relative -left-5 pr-0 pl-5 py-2 border  rounded-r-full mb-2 ">
-            Education
+            {t("Education")}
           </h3>
           <div className="text-base bg-mainBlue text-white">
             <ul>
@@ -111,7 +111,7 @@ const CvPage = () => {
                   ></Image>
                   ESIL University: 2020 - 2022
                 </h4>
-                <p className="text-2xl">Information Systems</p>
+                <p className="text-2xl">{t("Information_Systems")} </p>
               </li>
 
               <li>
@@ -127,14 +127,16 @@ const CvPage = () => {
                   Lingua: 2013-2017
                 </h4>
 
-                <p className="text-2xl">Foreign Philology</p>
+                <p className="text-2xl">{t("Foreign_Philology")}</p>
               </li>
             </ul>
             <div className=" mt-5">
-              <h4 className="text-2xl flex items-center mb-2">Languages</h4>
+              <h4 className="text-2xl flex items-center mb-2">
+                {t("Languages")}
+              </h4>
               <div className="flex flex-col items-end">
                 <div className="flex items-center   mb-2">
-                  <p className="text-base mr-2">Russian</p>
+                  <p className="text-base mr-2">{t("Russian")}</p>
                   <StatusBarComponent
                     percentage={100}
                     width={18.75}
@@ -143,7 +145,7 @@ const CvPage = () => {
                   />
                 </div>
                 <div className="flex items-center  mb-2">
-                  <p className="text-base mr-2">English</p>
+                  <p className="text-base mr-2">{t("English")} </p>
                   <StatusBarComponent
                     percentage={80}
                     width={18.75}
@@ -152,7 +154,7 @@ const CvPage = () => {
                   />
                 </div>
                 <div className="flex items-center  mb-2">
-                  <p className="text-base mr-2">French</p>
+                  <p className="text-base mr-2">{t("French")} </p>
                   <StatusBarComponent
                     percentage={60}
                     width={18.75}
@@ -161,7 +163,7 @@ const CvPage = () => {
                   />
                 </div>
                 <div className="flex items-center mb-2">
-                  <p className="text-base mr-2">Spanish</p>
+                  <p className="text-base mr-2">{t("Spanish")} </p>
                   <StatusBarComponent
                     percentage={30}
                     width={18.75}
@@ -175,7 +177,7 @@ const CvPage = () => {
         </div>
         <div className="bg-white px-2 rounded relative -right-2">
           <h3 className="py-2 px-2 text-xl bg-white text-mainBlue font-bold mb-2 ">
-            Skills
+          {t("Skills")}
           </h3>
           <div className="flex-row flex justify-center flex-wrap gap-7">
             <div className="flex-row justify-center">
