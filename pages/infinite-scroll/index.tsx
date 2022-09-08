@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 export const InfiniteScrollPage = () => {
   const [images, setImages] = useState([]);
   const [limit, setLimit] = useState(20);
@@ -11,6 +12,7 @@ export const InfiniteScrollPage = () => {
 
   const tableWrapperrRef = useRef();
   const tableRef = useRef();
+  const { t } = useTranslation();
 
   const checkNeccecityDownloadPhotos = useCallback(async () => {
     if (
@@ -84,10 +86,10 @@ export const InfiniteScrollPage = () => {
               Id
             </th>
             <th scope="col" className="py-3 px-6">
-              Description
+              {t("Description")}
             </th>
             <th scope="col" className="py-3 px-6">
-              Image
+              {t("Image")}
             </th>
           </tr>
         </thead>

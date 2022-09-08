@@ -8,10 +8,11 @@ import { Gestures } from "react-gesture-handler";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { Backdrop } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const SnakeGameComponent = () => {
   // let CANVAS_SIZE = [800, 800];
-
+  const { t } = useTranslation();
   const [CANVAS_SIZE, setCANVAS_SIZE] = useState([800, 800]);
   const SNAKE_START = [
     [8, 7],
@@ -240,20 +241,20 @@ const SnakeGameComponent = () => {
 
         <div className="ml-5 flex w-screen">
           <div className="flex flex-col items-center justify-center w-full ">
-            <p className="text-2xl">This is snake game</p>
+            <h2 className="text-3xl font-semibold mb-2">{t("Snake_game")} </h2>
 
             <div className="mb-2">
               <div>
                 <p className="flex items-center text-lg">
-                  Use
+                  {t("Use")}
                   <Image
                     className=""
                     src="/Arrows.svg"
                     width={150}
                     height={100}
                     alt="arrows"
-                  ></Image>{" "}
-                  or gestures to navigate
+                  ></Image>
+                  {t("Or_gestures")}
                 </p>
               </div>
             </div>
@@ -262,7 +263,7 @@ const SnakeGameComponent = () => {
               className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max mb-2"
               onClick={startGame}
             >
-              Start Game
+              {t("Start_Game")}
             </button>
             <button
               className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max"
@@ -275,10 +276,10 @@ const SnakeGameComponent = () => {
                 }
               }}
             >
-              {speed !== null ? "Pause Game" : "Resume Game"}
+              {speed !== null ? t("Pause_Game") : t("Resume_Game")}
             </button>
             <p className="text-center text-3xl font-bold mb-2">
-              Your points are {points}
+              {t("Your_points_are")} {points}
             </p>
           </div>
         </div>
@@ -297,13 +298,13 @@ const SnakeGameComponent = () => {
             //   onClick={handleClose}
           >
             <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-7xl">
-              <p>GAME IS OVER!</p>
-              <p>Your score is {points}</p>
+              <p>{t('GAME_IS_OVER')}</p>
+              <p> {t("Your_points_are")}:{points}</p>
               <button
                 className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
                 onClick={startGame}
               >
-                Try again
+                {t('Try_again')} 
               </button>
             </div>
           </Backdrop>

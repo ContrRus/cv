@@ -8,7 +8,7 @@ export const NavBarComponent = () => {
   const router = useRouter();
   const { locale, locales } = router;
   console.log("router", router);
-
+const {t} = useTranslation()
   console.log("locale", locale);
   console.log("locales", locales);
 
@@ -28,40 +28,40 @@ export const NavBarComponent = () => {
   };
   return (
     <nav className="container lg:max-w-screen-lg sticky inset-x-0 top-0 mx-auto z-10">
-      <div className="flex justify-center">
-        <ul className=" justify-center py-2 hidden sm:flex">
+      <div className="flex justify-center ">
+        <ul className=" justify-center items-center py-2 hidden sm:flex">
           <li className="ml-2">
             <Link href="/cv">
               <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                CV
+                {t('CV')}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/snake-game">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                Snake Game
+                {t('Snake_Game')}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/chat">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                Simple chat
+                {t('Simple_Chat')}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/infinite-scroll">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                Infinite scroll
+                {t('Infinite_Scroll')}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/calculator">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                Calculator
+                {t('Calculator')}
               </button>
             </Link>
           </li>
@@ -112,6 +112,26 @@ export const NavBarComponent = () => {
             } ${styles["animate-burger-menu"]}`}
           ></span>
         </div>
+        <div className=" ml-2  items-center flex ">
+          <p className="mr-2 cursor-pointer">
+            <Image
+              src={"/us.png"}
+              width={30}
+              height={30}
+              alt={"US Flage"}
+              onClick={() => changeLocaleLanguage("en")}
+            ></Image>
+          </p>
+          <p className="cursor-pointer">
+            <Image
+              src={"/france.png"}
+              width={30}
+              height={30}
+              alt={"FR Flage"}
+              onClick={() => changeLocaleLanguage("fr")}
+            ></Image>
+          </p>
+        </div>
         {
           <div
             ref={burgerMenuRef}
@@ -131,7 +151,7 @@ export const NavBarComponent = () => {
                       setShowBurgerMenu(false);
                     }}
                   >
-                    CV
+                    {t('CV')}
                   </button>
                 </Link>
               </li>
@@ -144,7 +164,7 @@ export const NavBarComponent = () => {
                       setShowBurgerMenu(false);
                     }}
                   >
-                    Snake Game
+                    {t('Snake_Game')}
                   </button>
                 </Link>
               </li>
@@ -157,7 +177,7 @@ export const NavBarComponent = () => {
                       setShowBurgerMenu(false);
                     }}
                   >
-                    Simple chat
+                    {t('Simple_Chat')}
                   </button>
                 </Link>
               </li>
@@ -170,7 +190,7 @@ export const NavBarComponent = () => {
                       setShowBurgerMenu(false);
                     }}
                   >
-                    Infinite scroll
+                    {t('Infinite_Scroll')}
                   </button>
                 </Link>
               </li>
@@ -183,7 +203,7 @@ export const NavBarComponent = () => {
                       setShowBurgerMenu(false);
                     }}
                   >
-                    Calculator
+                    {t('Calculator')}
                   </button>
                 </Link>
               </li>

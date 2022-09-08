@@ -6,14 +6,14 @@ import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 // import { ReactComponent  as HatIcon } from "../../public/graduation-hat.svg";
 import transaltions from "../../translations/translations.json";
-i18n.use(initReactI18next).init({
-  resources: transaltions,
-  fallbackLng: "en",
-});
+// i18n.use(initReactI18next).init({
+//   resources: transaltions,
+//   fallbackLng: "en",
+// });
 const CvPage = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex-row container lg:max-w-screen-md h-screen bg-mainBlue    ">
+    <div className="flex-row container lg:max-w-screen-lg h-screen bg-mainBlue    ">
       <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
         <div className="mb-3 bg-mainBlue">
           <h1 className="text-5xl text-center text-white  font-bold mb-2">
@@ -59,7 +59,7 @@ const CvPage = () => {
             <p>{t("About_Me2")}</p>
           </div>
         </div>
-        <div className="bg-white px-2 w-full flex flex-col  rounded h-min my-auto relative -right-2 ">
+        <div className="bg-white px-2 w-full flex flex-col  rounded h-min my-auto relative  ">
           <h3 className="py-2 px-2 text-xl bg-white text-mainBlue font-bold  ">
             {t("Contacts")}
           </h3>
