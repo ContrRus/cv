@@ -53,7 +53,7 @@ const SnakeGameComponent = () => {
   useEffect(() => {
     if (mainContainerRef.current.offsetWidth < 641) {
       setCANVAS_SIZE([300, 300]);
-      setScale(20);
+      setScale(25);
     }
   }, []);
 
