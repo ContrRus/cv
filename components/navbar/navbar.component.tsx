@@ -24,6 +24,7 @@ export const NavBarComponent = () => {
   const handleWindowSizeChange = (e) => {
     // @ts-ignore
     setWidth(window.innerWidth);
+    // @ts-ignore
     setHeight(window.innerHeight);
     console.log("e", window.innerWidth);
   };
