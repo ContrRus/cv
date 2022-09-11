@@ -7,10 +7,8 @@ import { useTranslation } from "react-i18next";
 export const NavBarComponent = () => {
   const router = useRouter();
   const { locale, locales } = router;
-  console.log("router", router);
   const { t } = useTranslation();
-  console.log("locale", locale);
-  console.log("locales", locales);
+  const [activeLanguage, setActiveLanguage] = useState("en");
 
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const burgerMenuRef = useRef();
@@ -24,6 +22,7 @@ export const NavBarComponent = () => {
 
   const { i18n } = useTranslation();
   const changeLocaleLanguage = (locale) => {
+    setActiveLanguage(locale)
     i18n.changeLanguage(locale);
   };
   return (
@@ -74,16 +73,24 @@ export const NavBarComponent = () => {
           </li>
         </ul>
         <div className=" ml-2  items-center hidden sm:flex">
-          <p className="mr-2 cursor-pointer">
+          <p
+            className="mr-2 cursor-pointer px-1"
+            style={{
+              border: `${activeLanguage === "en" ? "2px solid black" : ''}`,
+            }}
+          >
             <Image
               src={"/us.png"}
               width={30}
               height={30}
               alt={"US Flage"}
+              className={`${locale === "en"}`}
               onClick={() => changeLocaleLanguage("en")}
             ></Image>
           </p>
-          <p className="cursor-pointer">
+          <p className="cursor-pointer px-1"  style={{
+              border: `${activeLanguage === "fr" ? "2px solid black" : ''}`,
+            }}>
             <Image
               src={"/france.png"}
               width={30}
@@ -120,7 +127,9 @@ export const NavBarComponent = () => {
           ></span>
         </div>
         <div className=" ml-2  items-center flex ">
-          <p className="mr-2 cursor-pointer">
+          <p className="mr-2 cursor-pointer px-1 mb-1" style={{
+              border: `${activeLanguage === "en" ? "2px solid black" : ''}`,
+            }}>
             <Image
               src={"/us.png"}
               width={30}
@@ -129,7 +138,9 @@ export const NavBarComponent = () => {
               onClick={() => changeLocaleLanguage("en")}
             ></Image>
           </p>
-          <p className="cursor-pointer">
+          <p className="cursor-pointer px-1 mb-1" style={{
+              border: `${activeLanguage === "fr" ? "2px solid black" : ''}`,
+            }}>
             <Image
               src={"/france.png"}
               width={30}

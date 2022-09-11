@@ -130,8 +130,6 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
 
 const formatOperand = (operand) => {
   if (operand == null) return;
-  console.log("operand,", operand);
-  console.log("type,", typeof operand);
   if (typeof operand === "number") {
     operand = new String(operand);
   }

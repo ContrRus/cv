@@ -50,14 +50,12 @@ const SnakeGameComponent = () => {
   }, [snake, apple, gameOver]);
 
   useEffect(() => {
-    console.log("mainContainerRef", mainContainerRef.current.offsetWidth);
     if (mainContainerRef.current.offsetWidth < 641) {
       setCANVAS_SIZE([500, 600]);
     }
   }, []);
 
   const startGame = () => {
-    console.log(" canvasRef.current", canvasRef.current);
 
     setSnake(SNAKE_START);
     setApple(APPLE_START);
@@ -145,9 +143,7 @@ const SnakeGameComponent = () => {
     keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
   };
   const moveSnakeMobile = (event) => {
-    console.log("event", event);
     const { type } = event;
-    console.log(type);
 
     // if (type === "panup") {
     //   if (_.isEqual(DIRECTIONS[40], dir)) {

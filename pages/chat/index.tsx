@@ -35,7 +35,7 @@ const ChatComponent = () => {
       console.log("Connection is established");
     };
     socket.current.onmessage = (event: any) => {
-      console.log("event socket.current.onmessage", event);
+      // console.log("event socket.current.onmessage", event);
 
       const message = JSON.parse(event.data);
 

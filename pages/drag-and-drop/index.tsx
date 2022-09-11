@@ -70,14 +70,15 @@ const DragAndDropPage = () => {
       // console.log("event", event);
 
       setDraggedItem((pV) => {
-        console.log("pV", pV);
         return event.target;
       });
     } catch (error) {
       console.log("error", error);
     }
   };
+  // @ts-ignore: Unreachable code error
   if (typeof Array.prototype.move === "undefined") {
+   // @ts-ignore: Unreachable code error
     Array.prototype.move = function (from, to, on = 1) {
       this.splice(to, 0, ...this.splice(from, on));
     };
@@ -88,7 +89,6 @@ const DragAndDropPage = () => {
 
   const drop = (e) => {
     e.preventDefault();
-    console.log("drop e", e);
     const { value: onDropIndex } = e.target;
 
     if (listColumns) {
@@ -103,7 +103,6 @@ const DragAndDropPage = () => {
         let [givingArray, setterGivingArray] = whatArray(previousColumn);
         let [gettingArray, setterGettingArray] = whatArray(currentColumn);
         if (previousColumn === currentColumn) {
-          console.log("onDropIndex", onDropIndex);
           let copyArray = [...gettingArray];
           // console.log("copyArray bef", copyArray);
           copyArray.move(movingItemIndex, onDropIndex);
@@ -212,7 +211,6 @@ const DragAndDropPage = () => {
     }
     setUpdatedOnLoad(true);
     setAddBtns(document.querySelectorAll(".add-btn:not(.solid)"));
-    console.log("addBtns", addBtns);
     setSaveItemBtns(document.querySelectorAll(".solid"));
     setAddItemContainers(document.querySelectorAll(".add-container"));
     setAddItems(document.querySelectorAll(".add-item"));

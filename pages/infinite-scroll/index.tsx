@@ -20,8 +20,6 @@ export const InfiniteScrollPage = () => {
         document.body.offsetHeight - 2000 &&
       photosWereDonwloaded
     ) {
-      console.log("downloadedImagesQuantity", downloadedImagesQuantity);
-      console.log("load more");
       setDownloadedImagesQuantity((pV) => {
         if (pV === limit) {
           return 0;
@@ -35,11 +33,6 @@ export const InfiniteScrollPage = () => {
   }, [photosWereDonwloaded, downloadedImagesQuantity, limit]);
 
   const onImageLoad = useCallback(() => {
-    console.log("image downloaded");
-    console.log(
-      "downloadedImagesQuantity in onImageLoad",
-      downloadedImagesQuantity
-    );
     setDownloadedImagesQuantity((prevVal) => {
       if (prevVal === limit) {
         return 0;
@@ -69,8 +62,6 @@ export const InfiniteScrollPage = () => {
     }
   }, [downloadedImagesQuantity, limit]);
   useEffect(() => {
-    console.log("images", images);
-
     setFirstLoadCompleted(true);
   }, []);
 

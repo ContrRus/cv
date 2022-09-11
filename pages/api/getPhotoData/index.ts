@@ -14,7 +14,6 @@ export default async function retrievePhotoData(
   res: NextApiResponse<any>
 ) {
   const client = new MongoClient(URI);
-  console.log("req", req.query);
   const { skip, limit } = req.query;
 
   try {
