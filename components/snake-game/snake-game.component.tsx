@@ -19,7 +19,8 @@ const SnakeGameComponent = () => {
     [8, 8],
   ];
   const APPLE_START = [8, 3];
-  const SCALE = 40;
+  // const scale = 40;
+  const [scale, setScale] = useState(40);
   const SPEED = 300;
   const [points, setPoints] = useState(0);
   const DIRECTIONS: Directions = {
@@ -41,7 +42,7 @@ const SnakeGameComponent = () => {
     // console.log("canvasRef", canvasRef);
     const context: CanvasRenderingContext2D =
       canvasRef.current.getContext("2d");
-    context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+    context.setTransform(scale, 0, 0, scale, 0, 0);
     context.clearRect(0, 0, CANVAS_SIZE[0], CANVAS_SIZE[1]);
     context.fillStyle = "green";
     snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
@@ -52,6 +53,7 @@ const SnakeGameComponent = () => {
   useEffect(() => {
     if (mainContainerRef.current.offsetWidth < 641) {
       setCANVAS_SIZE([300, 300]);
+      setScale(20);
     }
   }, []);
 
@@ -68,7 +70,7 @@ const SnakeGameComponent = () => {
 
   const createApple = () => {
     return apple.map((_, index) =>
-      Math.floor(Math.random() * (CANVAS_SIZE[index] / SCALE))
+      Math.floor(Math.random() * (CANVAS_SIZE[index] / scale))
     );
   };
   const endGame = () => {
@@ -80,10 +82,10 @@ const SnakeGameComponent = () => {
     // console.log("piece", piece);
 
     if (
-      piece[0] * SCALE >= CANVAS_SIZE[0] ||
-      piece[0] * SCALE < 0 ||
-      piece[1] * SCALE >= CANVAS_SIZE[1] ||
-      piece[1] * SCALE < 0
+      piece[0] * scale >= CANVAS_SIZE[0] ||
+      piece[0] * scale < 0 ||
+      piece[1] * scale >= CANVAS_SIZE[1] ||
+      piece[1] * scale < 0
     ) {
       return true;
     }
