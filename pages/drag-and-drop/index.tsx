@@ -18,12 +18,7 @@ const DragAndDropPage = () => {
   const [saveItemBtns, setSaveItemBtns] = useState([]);
   const [addItemContainers, setAddItemContainers] = useState([]);
   const [addItems, setAddItems] = useState([]);
-  // let addBtns;
-  // let saveItemBtns;
-  // let addItemContainers;
-  // let addItems;
 
-  //   let listColumns;
   const [updatedOnLoad, setUpdatedOnLoad] = useState(false);
   const [listColumns, setListColumns] = useState([]);
   const [backlogListArray, setBacklogListArray] = useState([]);
@@ -36,12 +31,6 @@ const DragAndDropPage = () => {
   const [previousColumn, setPreviousColumn] = useState();
   const [movingItemIndex, setMovingItemIndex] = useState(null);
 
-  //   let backlogListArray = [];
-  //   let progressListArray = [];
-  //   let completeListArray = [];
-  //   let onHoldListArray = [];
-  //   let listArrays = [];
-
   const updateSavedColumns = useCallback(() => {
     let listArrays = [
       backlogListArray,
@@ -49,7 +38,6 @@ const DragAndDropPage = () => {
       completeListArray,
       onHoldListArray,
     ];
-    // if(backlogListArray.length && progressListArray.le)
     const arrayNames = ["backlog", "progress", "complete", "onHold"];
 
     for (let i = 0; i < listArrays.length; i++) {
@@ -85,9 +73,6 @@ const DragAndDropPage = () => {
       this.splice(to, 0, ...this.splice(from, on));
     };
   }
-  // const moveElementInArray = (array, from, to) => {
-  //   array.splice(to, ...array.splice(from));
-  // };
 
   const drop = (e) => {
     e.preventDefault();
@@ -168,10 +153,10 @@ const DragAndDropPage = () => {
       setCompleteListArray(JSON.parse(localStorage.completeItems));
       setOnHoldListArray(JSON.parse(localStorage.onHoldItems));
     } else {
-      setBacklogListArray(["Release the course", "Sit back and relax"]);
-      setProgressListArray(["Work on projects", "Listen to music"]);
-      setCompleteListArray(["Being cool", "Getting stuff done"]);
-      setOnHoldListArray(["Being uncool"]);
+      setBacklogListArray(["Read Clean Code"]);
+      setProgressListArray(["Work on projects", "Find the best employer","Continue to learn new things"]);
+      setCompleteListArray(["Finish CV"]);
+      setOnHoldListArray([""]);
       //   backlogListArray = ["Release the course", "Sit back and relax"];
       //   progressListArray = ["Work on projects", "Listen to music"];
       //   completeListArray = ["Being cool", "Getting stuff done"];

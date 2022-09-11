@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -9,7 +9,7 @@ export const NavBarComponent = () => {
   const { locale, locales } = router;
   const { t } = useTranslation();
   const [activeLanguage, setActiveLanguage] = useState("en");
-
+  const [width, setWidth] = useState();
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const burgerMenuRef = useRef();
   const checkOverFlow = () => {
@@ -20,11 +20,26 @@ export const NavBarComponent = () => {
     }
   };
 
+  const handleWindowSizeChange = () => {
+    // @ts-ignore
+    setWidth(window.innerWidth);
+  };
+
   const { i18n } = useTranslation();
   const changeLocaleLanguage = (locale) => {
-    setActiveLanguage(locale)
+    setActiveLanguage(locale);
     i18n.changeLanguage(locale);
   };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+  // @ts-ignore
+
+  const isMobile = width <= 768;
   return (
     <nav className="container lg:max-w-screen-lg sticky inset-x-0 top-0 mx-auto z-10">
       <div className="flex justify-center ">
@@ -64,19 +79,21 @@ export const NavBarComponent = () => {
               </button>
             </Link>
           </li>
-          <li className="ml-2">
-            <Link href="/drag-and-drop">
-              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("DragAndDropPage")}
-              </button>
-            </Link>
-          </li>
+          {!isMobile && (
+            <li className="ml-2">
+              <Link href="/drag-and-drop">
+                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("DragAndDropPage")}
+                </button>
+              </Link>
+            </li>
+          )}
         </ul>
         <div className=" ml-2  items-center hidden sm:flex">
           <p
             className="mr-2 cursor-pointer px-1"
             style={{
-              border: `${activeLanguage === "en" ? "2px solid black" : ''}`,
+              border: `${activeLanguage === "en" ? "2px solid black" : ""}`,
             }}
           >
             <Image
@@ -88,9 +105,12 @@ export const NavBarComponent = () => {
               onClick={() => changeLocaleLanguage("en")}
             ></Image>
           </p>
-          <p className="cursor-pointer px-1"  style={{
-              border: `${activeLanguage === "fr" ? "2px solid black" : ''}`,
-            }}>
+          <p
+            className="cursor-pointer px-1"
+            style={{
+              border: `${activeLanguage === "fr" ? "2px solid black" : ""}`,
+            }}
+          >
             <Image
               src={"/france.png"}
               width={30}
@@ -127,9 +147,12 @@ export const NavBarComponent = () => {
           ></span>
         </div>
         <div className=" ml-2  items-center flex ">
-          <p className="mr-2 cursor-pointer px-1 mb-1" style={{
-              border: `${activeLanguage === "en" ? "2px solid black" : ''}`,
-            }}>
+          <p
+            className="mr-2 cursor-pointer px-1 mb-1"
+            style={{
+              border: `${activeLanguage === "en" ? "2px solid black" : ""}`,
+            }}
+          >
             <Image
               src={"/us.png"}
               width={30}
@@ -138,9 +161,12 @@ export const NavBarComponent = () => {
               onClick={() => changeLocaleLanguage("en")}
             ></Image>
           </p>
-          <p className="cursor-pointer px-1 mb-1" style={{
-              border: `${activeLanguage === "fr" ? "2px solid black" : ''}`,
-            }}>
+          <p
+            className="cursor-pointer px-1 mb-1"
+            style={{
+              border: `${activeLanguage === "fr" ? "2px solid black" : ""}`,
+            }}
+          >
             <Image
               src={"/france.png"}
               width={30}
@@ -225,19 +251,21 @@ export const NavBarComponent = () => {
                   </button>
                 </Link>
               </li>
-              <li>
-                <Link href="/drag-and-drop">
-                  <button
-                    className="border px-2 text-white text-5xl "
-                    onClick={() => {
-                      checkOverFlow();
-                      setShowBurgerMenu(false);
-                    }}
-                  >
-                    {t("DragAndDropPage")}
-                  </button>
-                </Link>
-              </li>
+              {isMobile && (
+                <li>
+                  <Link href="/drag-and-drop">
+                    <button
+                      className="border px-2 text-white text-5xl "
+                      onClick={() => {
+                        checkOverFlow();
+                        setShowBurgerMenu(false);
+                      }}
+                    >
+                      {t("DragAndDropPage")}
+                    </button>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         }
