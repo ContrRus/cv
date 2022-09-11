@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./styles.module.css";
+// @ts-nocheck
+
 const DragAndDropPage = () => {
   const { t } = useTranslation();
   const backLogContentRef = useRef();
@@ -12,10 +14,10 @@ const DragAndDropPage = () => {
   const onHoldContentRef = useRef();
   const onHoldListRef = useRef();
 
-  const [addBtns, setAddBtns] = useState();
-  const [saveItemBtns, setSaveItemBtns] = useState();
-  const [addItemContainers, setAddItemContainers] = useState();
-  const [addItems, setAddItems] = useState();
+  const [addBtns, setAddBtns] = useState([]);
+  const [saveItemBtns, setSaveItemBtns] = useState([]);
+  const [addItemContainers, setAddItemContainers] = useState([]);
+  const [addItems, setAddItems] = useState([]);
   // let addBtns;
   // let saveItemBtns;
   // let addItemContainers;
@@ -23,7 +25,7 @@ const DragAndDropPage = () => {
 
   //   let listColumns;
   const [updatedOnLoad, setUpdatedOnLoad] = useState(false);
-  const [listColumns, setListColumns] = useState();
+  const [listColumns, setListColumns] = useState([]);
   const [backlogListArray, setBacklogListArray] = useState([]);
   const [progressListArray, setProgressListArray] = useState([]);
   const [completeListArray, setCompleteListArray] = useState([]);
@@ -78,7 +80,7 @@ const DragAndDropPage = () => {
   };
   // @ts-ignore: Unreachable code error
   if (typeof Array.prototype.move === "undefined") {
-   // @ts-ignore: Unreachable code error
+    // @ts-ignore: Unreachable code error
     Array.prototype.move = function (from, to, on = 1) {
       this.splice(to, 0, ...this.splice(from, on));
     };
@@ -92,7 +94,7 @@ const DragAndDropPage = () => {
     const { value: onDropIndex } = e.target;
 
     if (listColumns) {
-  // @ts-ignore: Unreachable code error
+      // @ts-ignore: Unreachable code error
 
       listColumns.forEach((col) => {
         col.classList.remove(`${styles.over}`);
@@ -105,16 +107,28 @@ const DragAndDropPage = () => {
         let [givingArray, setterGivingArray] = whatArray(previousColumn);
         let [gettingArray, setterGettingArray] = whatArray(currentColumn);
         if (previousColumn === currentColumn) {
+          // @ts-ignore: Unreachable code error
+
           let copyArray = [...gettingArray];
           // console.log("copyArray bef", copyArray);
+          // @ts-ignore: Unreachable code error
+
           copyArray.move(movingItemIndex, onDropIndex);
+          // @ts-ignore: Unreachable code error
+
           setterGettingArray(copyArray);
           // moveElementInArray(copyArray, movingItemIndex, onDropIndex);
           // console.log("copyArray aft", copyArray);
         } else {
+          // @ts-ignore: Unreachable code error
+
           setterGivingArray(
+            // @ts-ignore: Unreachable code error
+
             givingArray.filter((el, index) => index != movingItemIndex)
           );
+          // @ts-ignore: Unreachable code error
+
           setterGettingArray([...gettingArray, givingArray[movingItemIndex]]);
         }
       }
@@ -174,7 +188,10 @@ const DragAndDropPage = () => {
   const addToCol = (col) => {
     const [array, setArray] = whatArray(col);
     addItems[col].textContent = addItems[col].textContent.trim();
+
     if (addItems[col].textContent !== "") {
+      // @ts-ignore
+
       setArray((pV) => [...pV, addItems[col].textContent]);
       setTimeout(() => {
         addItems[col].textContent = "";
@@ -192,6 +209,8 @@ const DragAndDropPage = () => {
   const updateItem = (index, col) => {
     const [array, setArray] = whatArray(col);
     const selectedColumnEl = listColumns[col].children;
+    // @ts-ignore
+
     let moddifiedArray = [...array];
     for (let i = 0; i < moddifiedArray.length; i++) {
       if (i === index) {
@@ -200,6 +219,8 @@ const DragAndDropPage = () => {
       }
     }
     moddifiedArray = moddifiedArray.map((el) => el.trim());
+    // @ts-ignore
+
     setArray(moddifiedArray.filter((el) => el));
     // console.log(selectedColumnEl[index].textContent);
 
@@ -212,15 +233,21 @@ const DragAndDropPage = () => {
       getSavedColumns();
     }
     setUpdatedOnLoad(true);
+    // @ts-ignore
+
     setAddBtns(document.querySelectorAll(".add-btn:not(.solid)"));
+    // @ts-ignore
     setSaveItemBtns(document.querySelectorAll(".solid"));
+    // @ts-ignore
     setAddItemContainers(document.querySelectorAll(".add-container"));
+    // @ts-ignore
     setAddItems(document.querySelectorAll(".add-item"));
     // addBtns = document.querySelectorAll(".add-btn:not(.solid)");
     // saveItemBtns = document.querySelectorAll(".solid");
     // addItemContainers = document.querySelectorAll(".add-container");
     // addItems = document.querySelectorAll(".add-item");
     let dragItemsList = document.querySelectorAll(".drag-item-list");
+    // @ts-ignore
     setListColumns(dragItemsList);
   }, []);
 
