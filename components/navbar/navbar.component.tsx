@@ -37,6 +37,10 @@ export const NavBarComponent = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
+    // @ts-ignore
+    setWidth(window.innerWidth);
+    // @ts-ignore
+    setHeight(window.innerHeight);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
