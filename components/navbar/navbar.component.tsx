@@ -37,7 +37,9 @@ export const NavBarComponent = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
+    console.log("window", window);
     // @ts-ignore
+
     setWidth(window.innerWidth);
     // @ts-ignore
     setHeight(window.innerHeight);
@@ -189,7 +191,7 @@ export const NavBarComponent = () => {
           <div
             ref={burgerMenuRef}
             style={{ width, height }}
-            className={`absolute top-0 h-screen w-screen z-10 bg-mainBlue ${
+            className={`absolute top-0 h-[${height}] w-[${width}] z-10 bg-mainBlue ${
               showBurgerMenu
                 ? styles["scale-in-hor-left"]
                 : styles["scale-out-hor-left"]
