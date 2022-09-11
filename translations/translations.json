@@ -42,10 +42,18 @@
       "Connected": "Connected",
       "Description": "Description",
       "Image": "Image",
-      "CV":"CV",
-      "Snake_Game":"Snake Game",
-      "Infinite_Scroll":"Infinite Scroll",
-      "Calculator":"Calculator"
+      "CV": "CV",
+      "Snake_Game": "Snake Game",
+      "Infinite_Scroll": "Infinite Scroll",
+      "Calculator": "Calculator",
+      "DragAndDropPage": "Drag and Drop",
+      "Backlog": "Backlog",
+      "Backlog_": "Backlog",
+      "Progress_": "Progress",
+      "Complete_": "Complete",
+      "On_Hold": "On Hold",
+      "Add_Item": "Add Item",
+      "Save_Item" : "Save"
     }
   },
   "fr": {
@@ -91,10 +99,18 @@
       "Connected": "connecté",
       "Description": "Description",
       "Image": "Image",
-      "CV":"CV",
-      "Snake_Game":"Jeu de Serpent",
-      "Infinite_Scroll":"Défilement Infini",
-      "Calculator":"Calculatrice"
+      "CV": "CV",
+      "Snake_Game": "Jeu de Serpent",
+      "Infinite_Scroll": "Défilement Infini",
+      "Calculator": "Calculatrice",
+      "DragAndDropPage": "Glisser-Déposer",
+      "Backlog": "Debt",
+      "Backlog_": "Debt",
+      "Progress_": "Progrès",
+      "Complete_": "Terminé",
+      "On_Hold": "En attente",
+      "Add_Item": "Ajouter",
+      "Save_Item":"Sauvegarder"
     }
   }
 }

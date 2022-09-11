@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       colors: {
         mainBlue: "#1F4258",
+        'dnd-1-col-color': "#a2622d",
+        'dnd-2-col-color': "#1b6161",
+        'dnd-3-col-color': "#248224",
+        'dnd-4-col-color': "#a22d22"
       },
       gridTemplateRows: {
         "custom-min-7-max-auto": "minmax(7rem,auto) repeat(5,6rem)",

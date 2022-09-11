@@ -8,7 +8,7 @@ export const NavBarComponent = () => {
   const router = useRouter();
   const { locale, locales } = router;
   console.log("router", router);
-const {t} = useTranslation()
+  const { t } = useTranslation();
   console.log("locale", locale);
   console.log("locales", locales);
 
@@ -33,35 +33,42 @@ const {t} = useTranslation()
           <li className="ml-2">
             <Link href="/cv">
               <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t('CV')}
+                {t("CV")}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/snake-game">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t('Snake_Game')}
+                {t("Snake_Game")}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/chat">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t('Simple_Chat')}
+                {t("Simple_Chat")}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/infinite-scroll">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t('Infinite_Scroll')}
+                {t("Infinite_Scroll")}
               </button>
             </Link>
           </li>
           <li className="ml-2">
             <Link href="/calculator">
               <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t('Calculator')}
+                {t("Calculator")}
+              </button>
+            </Link>
+          </li>
+          <li className="ml-2">
+            <Link href="/drag-and-drop">
+              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                {t("DragAndDropPage")}
               </button>
             </Link>
           </li>
@@ -151,7 +158,7 @@ const {t} = useTranslation()
                       setShowBurgerMenu(false);
                     }}
                   >
-                    {t('CV')}
+                    {t("CV")}
                   </button>
                 </Link>
               </li>
@@ -164,7 +171,7 @@ const {t} = useTranslation()
                       setShowBurgerMenu(false);
                     }}
                   >
-                    {t('Snake_Game')}
+                    {t("Snake_Game")}
                   </button>
                 </Link>
               </li>
@@ -177,7 +184,7 @@ const {t} = useTranslation()
                       setShowBurgerMenu(false);
                     }}
                   >
-                    {t('Simple_Chat')}
+                    {t("Simple_Chat")}
                   </button>
                 </Link>
               </li>
@@ -190,7 +197,7 @@ const {t} = useTranslation()
                       setShowBurgerMenu(false);
                     }}
                   >
-                    {t('Infinite_Scroll')}
+                    {t("Infinite_Scroll")}
                   </button>
                 </Link>
               </li>
@@ -203,7 +210,20 @@ const {t} = useTranslation()
                       setShowBurgerMenu(false);
                     }}
                   >
-                    {t('Calculator')}
+                    {t("Calculator")}
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link href="/drag-and-drop">
+                  <button
+                    className="border px-2 text-white text-5xl "
+                    onClick={() => {
+                      checkOverFlow();
+                      setShowBurgerMenu(false);
+                    }}
+                  >
+                    {t("DragAndDropPage")}
                   </button>
                 </Link>
               </li>
