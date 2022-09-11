@@ -16,12 +16,12 @@ const CvPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         ></meta>
-      </Head>
+      </Head> */}
       <div className="flex-row container lg:max-w-screen-lg h-screen bg-mainBlue    ">
         <header className="grid align-center justify-items-center grid-cols-1 sm:grid-cols-2 gap-4 pt-10">
           <div className="mb-3 bg-mainBlue">
