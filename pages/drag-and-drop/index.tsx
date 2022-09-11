@@ -92,6 +92,8 @@ const DragAndDropPage = () => {
     const { value: onDropIndex } = e.target;
 
     if (listColumns) {
+  // @ts-ignore: Unreachable code error
+
       listColumns.forEach((col) => {
         col.classList.remove(`${styles.over}`);
         col.classList.remove(`bg-dnd-1-col-color`);
