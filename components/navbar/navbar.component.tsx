@@ -10,6 +10,7 @@ export const NavBarComponent = () => {
   const { t } = useTranslation();
   const [activeLanguage, setActiveLanguage] = useState("en");
   const [width, setWidth] = useState();
+  const [height, setHeight] = useState();
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const burgerMenuRef = useRef();
   const checkOverFlow = () => {
@@ -20,9 +21,11 @@ export const NavBarComponent = () => {
     }
   };
 
-  const handleWindowSizeChange = () => {
+  const handleWindowSizeChange = (e) => {
     // @ts-ignore
     setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+    console.log("e", window.innerWidth);
   };
 
   const { i18n } = useTranslation();
@@ -41,87 +44,88 @@ export const NavBarComponent = () => {
 
   const isMobile = width <= 768;
   return (
-    <nav className="container lg:max-w-screen-lg sticky inset-x-0 top-0 mx-auto z-10">
-      <div className="flex justify-center ">
-        <ul className=" justify-center items-center py-2 hidden sm:flex">
-          <li className="ml-2">
-            <Link href="/cv">
-              <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("CV")}
-              </button>
-            </Link>
-          </li>
-          <li className="ml-2">
-            <Link href="/snake-game">
-              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("Snake_Game")}
-              </button>
-            </Link>
-          </li>
-          <li className="ml-2">
-            <Link href="/chat">
-              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("Simple_Chat")}
-              </button>
-            </Link>
-          </li>
-          <li className="ml-2">
-            <Link href="/infinite-scroll">
-              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("Infinite_Scroll")}
-              </button>
-            </Link>
-          </li>
-          <li className="ml-2">
-            <Link href="/calculator">
-              <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                {t("Calculator")}
-              </button>
-            </Link>
-          </li>
-          {!isMobile && (
+    <>
+      <nav className="container lg:max-w-screen-lg sticky inset-x-0 top-0 mx-auto z-10">
+        <div className="flex justify-center ">
+          <ul className=" justify-center items-center py-2 hidden sm:flex">
             <li className="ml-2">
-              <Link href="/drag-and-drop">
-                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
-                  {t("DragAndDropPage")}
+              <Link href="/cv">
+                <button className="border px-2 text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("CV")}
                 </button>
               </Link>
             </li>
-          )}
-        </ul>
-        <div className=" ml-2  items-center hidden sm:flex">
-          <p
-            className="mr-2 cursor-pointer px-1"
-            style={{
-              border: `${activeLanguage === "en" ? "2px solid black" : ""}`,
-            }}
-          >
-            <Image
-              src={"/us.png"}
-              width={30}
-              height={30}
-              alt={"US Flage"}
-              className={`${locale === "en"}`}
-              onClick={() => changeLocaleLanguage("en")}
-            ></Image>
-          </p>
-          <p
-            className="cursor-pointer px-1"
-            style={{
-              border: `${activeLanguage === "fr" ? "2px solid black" : ""}`,
-            }}
-          >
-            <Image
-              src={"/france.png"}
-              width={30}
-              height={30}
-              alt={"FR Flage"}
-              onClick={() => changeLocaleLanguage("fr")}
-            ></Image>
-          </p>
+            <li className="ml-2">
+              <Link href="/snake-game">
+                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("Snake_Game")}
+                </button>
+              </Link>
+            </li>
+            <li className="ml-2">
+              <Link href="/chat">
+                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("Simple_Chat")}
+                </button>
+              </Link>
+            </li>
+            <li className="ml-2">
+              <Link href="/infinite-scroll">
+                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("Infinite_Scroll")}
+                </button>
+              </Link>
+            </li>
+            <li className="ml-2">
+              <Link href="/calculator">
+                <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                  {t("Calculator")}
+                </button>
+              </Link>
+            </li>
+            {!isMobile && (
+              <li className="ml-2">
+                <Link href="/drag-and-drop">
+                  <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
+                    {t("DragAndDropPage")}
+                  </button>
+                </Link>
+              </li>
+            )}
+          </ul>
+          <div className=" ml-2  items-center hidden sm:flex">
+            <p
+              className="mr-2 cursor-pointer px-1"
+              style={{
+                border: `${activeLanguage === "en" ? "2px solid black" : ""}`,
+              }}
+            >
+              <Image
+                src={"/us.png"}
+                width={30}
+                height={30}
+                alt={"US Flage"}
+                className={`${locale === "en"}`}
+                onClick={() => changeLocaleLanguage("en")}
+              ></Image>
+            </p>
+            <p
+              className="cursor-pointer px-1"
+              style={{
+                border: `${activeLanguage === "fr" ? "2px solid black" : ""}`,
+              }}
+            >
+              <Image
+                src={"/france.png"}
+                width={30}
+                height={30}
+                alt={"FR Flage"}
+                onClick={() => changeLocaleLanguage("fr")}
+              ></Image>
+            </p>
+          </div>
         </div>
-      </div>
-
+      </nav>
       <div className="sm:hidden  ">
         <div
           className={`space-y-2 z-20 w-min relative cursor-pointer py-2 px-2 `}
@@ -179,6 +183,7 @@ export const NavBarComponent = () => {
         {
           <div
             ref={burgerMenuRef}
+            style={{ width, height }}
             className={`absolute top-0 h-screen w-screen z-10 bg-mainBlue ${
               showBurgerMenu
                 ? styles["scale-in-hor-left"]
@@ -251,7 +256,7 @@ export const NavBarComponent = () => {
                   </button>
                 </Link>
               </li>
-              {isMobile && (
+              {!isMobile && (
                 <li>
                   <Link href="/drag-and-drop">
                     <button
@@ -270,7 +275,7 @@ export const NavBarComponent = () => {
           </div>
         }
       </div>
-    </nav>
+    </>
   );
 };
 

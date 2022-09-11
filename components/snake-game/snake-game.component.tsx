@@ -56,7 +56,6 @@ const SnakeGameComponent = () => {
   }, []);
 
   const startGame = () => {
-
     setSnake(SNAKE_START);
     setApple(APPLE_START);
     setDir([0, -1]);
@@ -222,7 +221,7 @@ const SnakeGameComponent = () => {
       }}
     >
       <div
-        className=" block md:flex container md:w-screen"
+        className=" block sm:flex container sm:w-screen sm:justify-center"
         tabIndex={0}
         ref={mainContainerRef}
         // style={{margin: '0 auto'}}
@@ -235,28 +234,12 @@ const SnakeGameComponent = () => {
           ref={canvasRef}
         ></canvas>
 
-        <div className="ml-5 flex w-screen">
+        <div className="ml-5 sm:flex w-screen sm:justify-center">
           <div className="flex flex-col items-center justify-center w-full ">
-            <h2 className="text-3xl font-semibold mb-2">{t("Snake_game")} </h2>
-
-            <div className="mb-2">
-              <div>
-                <p className="flex items-center text-lg">
-                  {t("Use")}
-                  <Image
-                    className=""
-                    src="/Arrows.svg"
-                    width={150}
-                    height={100}
-                    alt="arrows"
-                  ></Image>
-                  {t("Or_gestures")}
-                </p>
-              </div>
-            </div>
+            {/* <h2 className="text-3xl font-semibold mb-2">{t("Snake_game")} </h2> */}
 
             <button
-              className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max mb-2"
+              className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max my-2"
               onClick={startGame}
             >
               {t("Start_Game")}
@@ -277,6 +260,21 @@ const SnakeGameComponent = () => {
             <p className="text-center text-3xl font-bold mb-2">
               {t("Your_points_are")} {points}
             </p>
+            <div className="mb-2">
+              <div>
+                <p className="flex items-center text-lg">
+                  {t("Use")}
+                  <Image
+                    className=""
+                    src="/Arrows.svg"
+                    width={150}
+                    height={100}
+                    alt="arrows"
+                  ></Image>
+                  {t("Or_gestures")}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         {gameOver && (
@@ -294,13 +292,16 @@ const SnakeGameComponent = () => {
             //   onClick={handleClose}
           >
             <div className="bg-black text-white w-screen h-screen absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-7xl">
-              <p>{t('GAME_IS_OVER')}</p>
-              <p> {t("Your_points_are")}:{points}</p>
+              <p>{t("GAME_IS_OVER")}</p>
+              <p>
+                {" "}
+                {t("Your_points_are")}:{points}
+              </p>
               <button
                 className="bg-white-500 hover:text-white-700  border border-white font-bold py-2 mt-2 pb-5 px-4 rounded w-max"
                 onClick={startGame}
               >
-                {t('Try_again')} 
+                {t("Try_again")}
               </button>
             </div>
           </Backdrop>

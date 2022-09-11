@@ -156,7 +156,7 @@ const DragAndDropPage = () => {
       setBacklogListArray(["Read Clean Code"]);
       setProgressListArray(["Work on projects", "Find the best employer","Continue to learn new things"]);
       setCompleteListArray(["Finish CV"]);
-      setOnHoldListArray([""]);
+      setOnHoldListArray([]);
       //   backlogListArray = ["Release the course", "Sit back and relax"];
       //   progressListArray = ["Work on projects", "Listen to music"];
       //   completeListArray = ["Being cool", "Getting stuff done"];
