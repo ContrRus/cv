@@ -153,8 +153,13 @@ const DragAndDropPage = () => {
       setCompleteListArray(JSON.parse(localStorage.completeItems));
       setOnHoldListArray(JSON.parse(localStorage.onHoldItems));
     } else {
-      setBacklogListArray(["Read Clean Code"]);
-      setProgressListArray(["Work on projects", "Find the best employer","Continue to learn new things"]);
+      setBacklogListArray([]);
+      setProgressListArray([
+        "Work on projects",
+        "Find the best employer",
+        "Continue to learn new things",
+        "Read Clean Code",
+      ]);
       setCompleteListArray(["Finish CV"]);
       setOnHoldListArray([]);
       //   backlogListArray = ["Release the course", "Sit back and relax"];
@@ -207,12 +212,9 @@ const DragAndDropPage = () => {
     // @ts-ignore
 
     setArray(moddifiedArray.filter((el) => el));
-    // console.log(selectedColumnEl[index].textContent);
-
-    // setArray(pArray => pArray)
-    // console.log("col", col);
   };
 
+ 
   useEffect(() => {
     if (!updatedOnLoad) {
       getSavedColumns();
