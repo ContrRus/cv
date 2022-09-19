@@ -144,17 +144,17 @@ export const NavBarComponent = () => {
           <span
             className={`block w-8 h-1  ${
               showBurgerMenu ? "bg-white" : "bg-gray-400"
-            } ${styles["animate-burger-menu"]} `}
+            }`}
           ></span>
           <span
             className={`block w-8 h-1  ${
               showBurgerMenu ? "bg-white" : "bg-gray-400"
-            } ${styles["animate-burger-menu"]}`}
+            }`}
           ></span>
           <span
             className={`block w-8 h-1  ${
               showBurgerMenu ? "bg-white" : "bg-gray-400"
-            } ${styles["animate-burger-menu"]}`}
+            }`}
           ></span>
         </div>
         <div className=" ml-2  items-center flex ">

@@ -33,9 +33,9 @@ const CvPage = () => {
               {t("Web Developer")}
             </h2>
             <picture className="object-scale-down justify-center flex mt-5">
-              <source srcSet="/avatar.jpeg" type="image/jpeg" />
+              <source srcSet="/avv5.jpg" type="image/jpeg" />
               <img
-                className={`${styles["avatar-img"]} rounded-full`}
+                className={`${styles["avatar-img"]} rounded`}
                 alt="Author image"
               />
             </picture>

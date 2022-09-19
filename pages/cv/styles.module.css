@@ -1,8 +1,10 @@
 .avatar-img {
-  width: 150px !important;
-  aspect-ratio: calc(2 / 2);
+  width: 200px !important;
+  /* aspect-ratio: calc(2 / 2); */
   /* min-width: 0 !important; */
   /* max-width: 0 !important; */
+  position: relative;
+  /* top"= */
   object-fit: cover;
 }
 

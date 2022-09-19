@@ -10,24 +10,18 @@
   animation: scale-out-hor-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
-.animate-burger-menu {
-  animation: change-color 10.5s infinite;
-}
-
 @-webkit-keyframes change-color {
   25% {
     background-color: #9ca3af;
   }
   50% {
     background-color: red;
-
   }
   75% {
     background-color: white;
-
   }
   100% {
-    background-color: #1F4258;
+    background-color: #1f4258;
   }
 }
 @-keyframes change-color {
