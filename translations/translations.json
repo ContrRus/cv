@@ -10,7 +10,7 @@
       "CV_introtext5": "Do not worry if loading takes too long it is because the app is being hosted on the Heroku and it needs some time to start up.",
       "About_Me": "About me",
       "About_Me1": "Super eager to embrace new challenges and opportunities in web development, have ongoing self-studying and crave getting more practical experience!",
-      "About_Me2": "I’m currently employed at LLP Devir as a Web Developer. While working there I’m creating and developing web applications for clients and making their pages attractive and functional. In addition to excellent programming and creativity, I rely on extensive knowledge of HTML, CSS, JavaScript, Angular, Node JS , and MongoDB. Through my experience coding and creating/amending web apps, I have amassed my professional and motivational skills.",
+      "About_Me2": "I’m currently employed at LLP Devir as a Web Developer. While working there I’m creating and developing web applications for clients and making their pages attractive and functional. In addition to excellent programming and creativity, I rely on extensive knowledge of HTML, CSS, JavaScript, Angular, React, NextJS, Node JS , and MongoDB. Through my experience coding and creating/amending web apps, I have amassed my professional and motivational skills.",
       "Contacts": "Contacts",
       "Education": "Education",
       "Information_Systems": "Information Systems",
@@ -53,7 +53,7 @@
       "Complete_": "Complete",
       "On_Hold": "On Hold",
       "Add_Item": "Add Item",
-      "Save_Item" : "Save"
+      "Save_Item": "Save"
     }
   },
   "fr": {
@@ -67,7 +67,7 @@
       "CV_introtext5": "Ne vous inquiétez pas si le chargement prend trop de temps,  c'est parce que l'application est hébergée sur le Heroku et qu'elle a besoin de temps pour démarre.",
       "About_Me": "À propos de moi",
       "About_Me1": "Super désireux d'embrasser de nouveaux défis et opportunités dans le développement Web, d'auto-étudier en continu et d'avoir envie d'acquérir plus d'expérience pratique!",
-      "About_Me2": "Je suis actuellement employé chez LLP Devir en tant que développeur Web. Tout en travaillant là-bas, je crée et développe des applications Web pour les clients et je rends leurs pages attrayantes et fonctionnelles. En plus d'une excellente programmation et créativité, je m'appuie sur une connaissance approfondie de HTML, CSS, JavaScript, Angular, Node JS et MongoDB. Grâce à mon expérience en codage et en création/modification d'applications Web, j'ai accumulé mes compétences professionnelles et motivationnelles.",
+      "About_Me2": "Je suis actuellement employé chez LLP Devir en tant que développeur Web. Tout en travaillant là-bas, je crée et développe des applications Web pour les clients et je rends leurs pages attrayantes et fonctionnelles. En plus d'une excellente programmation et créativité, je m'appuie sur une connaissance approfondie de HTML, CSS, JavaScript, Angular, React, NextJS, Node JS et MongoDB. Grâce à mon expérience en codage et en création/modification d'applications Web, j'ai accumulé mes compétences professionnelles et motivationnelles.",
       "Contacts": "Informations Personnelles",
       "Education": "Éducation",
       "Information_Systems": "Systèmes d'information",
@@ -110,7 +110,7 @@
       "Complete_": "Terminé",
       "On_Hold": "En attente",
       "Add_Item": "Ajouter",
-      "Save_Item":"Sauvegarder"
+      "Save_Item": "Sauvegarder"
     }
   }
 }
