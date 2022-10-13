@@ -156,9 +156,11 @@ const ChatComponent = () => {
             {t("Send")}
           </button>
         </div>
-        <div className="max-h-96 max-w-md flex-column overflow-scroll">
+        <div
+          className={`${styles["custom-scroll"]}  max-h-96 max-w-md flex-column overflow-scroll`}
+        >
           {messages.map((message) => (
-            <div key={message.id}>
+            <div key={message.id} className={`${styles["custom-scroll"]} `}>
               {message.event === "connection" ? (
                 <div
                   style={
@@ -166,7 +168,7 @@ const ChatComponent = () => {
                       ? { background: "white" }
                       : { background: "lightBlue" }
                   }
-                  className="border text-black py-2 px-3 mb-2 rounded "
+                  className={`${styles["custom-scroll"]} border text-black py-2 px-3 mb-2 rounded `}
                 >
                   {t("User")} {message.userName} {t("Connected")}
                 </div>
@@ -177,7 +179,7 @@ const ChatComponent = () => {
                       ? { background: "white" }
                       : { background: "lightBlue" }
                   }
-                  className=" border text-black py-2 px-3 mb-2 rounded"
+                  className={`${styles["custom-scroll"]}  border text-black py-2 px-3 mb-2 rounded custom-scroll`}
                 >
                   <b>{message.userName}</b> : {message.message}
                 </div>
