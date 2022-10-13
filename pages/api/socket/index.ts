@@ -6,7 +6,8 @@ type Data = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  // res: NextApiResponse<any>
+  res: any
 ) {
   if (res.socket.server.io) {
     console.log("Already set up");
