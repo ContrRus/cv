@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-
+import io from "socket.io-client";
 import styles from "./styles.module.css";
 import { useTranslation } from "react-i18next";
+
+let socket;
 const ChatComponent = () => {
   const [messages, setMessages] = useState([]);
   const [userEntered, setUserEntered] = useState(false);
   const [value, setValue] = useState("");
-  const socket: any = useRef();
+  // const socket: any = useRef();
   const [connected, setConnected] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -15,9 +17,6 @@ const ChatComponent = () => {
 
   useEffect(() => {}, []);
 
-  // const sendMessage = async () => {
-  //   await axios.post()
-  // }
   // https://cv-project-server.herokuapp.com/
 
   const connect = () => {
@@ -49,19 +48,40 @@ const ChatComponent = () => {
     };
   };
 
+  const connectUser = async () => {
+    await fetch("/api/socket");
+    socket = io();
+
+    socket.emit("user-connect", JSON.stringify(userName));
+    setConnected(true);
+
+    setUserEntered(true);
+    // socket.on("connection", (msg) => {
+    //   console.log("msg",msg);
+    // });
+    socket.on("user-connected", (msg) => {
+      console.log("msg", msg);
+
+      setMessages((currentMessages) => [JSON.parse(msg), ...currentMessages]);
+    });
+
+    socket.on("send-message", (msg) => {
+      setMessages((currentMessages) => [JSON.parse(msg), ...currentMessages]);
+    });
+  };
+
   const sendMessage = async (event) => {
-    // await axios.
-    console.log("event on sendMessage", event);
-
-    const message = {
-      userName,
-      message: value,
-      id: Date.now(),
-      event: "message",
-    };
-
-    socket.current.send(JSON.stringify(message));
-    setValue("");
+    if (value) {
+      const message = {
+        userName,
+        message: value,
+        id: Date.now(),
+        event: "message",
+      };
+      socket.emit("send-message", JSON.stringify(message));
+      // socket.current.send(JSON.stringify(message));
+      setValue("");
+    }
   };
 
   if (!connected) {
@@ -72,26 +92,26 @@ const ChatComponent = () => {
         <h1 className="text-5xl font-bold text-white py-2 text-center pt-4 mb-6">
           {t("Welcome_Chat")}
         </h1>
-      
+
         <div className=" w-full flex justify-center  items-center">
           <div className=" bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-2 text-center  ">
-              <h1 className="text-3xl font-bold mb-8">{t('Log_In_Please')} </h1>
+              <h1 className="text-3xl font-bold mb-8">{t("Log_In_Please")} </h1>
             </div>
             <div className="mb-4">
               <input
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && connect()}
+                onKeyDown={(e) => e.key === "Enter" && connectUser()}
                 type="text"
-                placeholder= {t("Enter_your_name")}
+                placeholder={t("Enter_your_name")}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="mb-6 text-center">
               <button
                 disabled={userEntered}
-                onClick={connect}
+                onClick={connectUser}
                 className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
                   userEntered && "cursor-not-allowed opacity-50"
                 } `}
@@ -118,7 +138,7 @@ const ChatComponent = () => {
     >
       <div>
         <h1 className="text-5xl text-white font-bold py-2 text-center mt-10 mb-6">
-          {t('Simple_Chat')}
+          {t("Simple_Chat")}
         </h1>
         <div className="flex flex-wrap flex-row justify-center">
           <input
@@ -127,7 +147,7 @@ const ChatComponent = () => {
             onKeyDown={(e) => e.key === "Enter" && sendMessage(e)}
             type="text"
             className="mt-10 shadow appearance-none border rounded w-full py-2 px-3  leading-tight  outline-mainBlue mb-2"
-            placeholder={t('Enter_your_message')}
+            placeholder={t("Enter_your_message")}
           />
           <button
             className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -148,7 +168,7 @@ const ChatComponent = () => {
                   }
                   className="border text-black py-2 px-3 mb-2 rounded "
                 >
-                  {t("User")}  {message.userName} {t("Connected")}
+                  {t("User")} {message.userName} {t("Connected")}
                 </div>
               ) : (
                 <div

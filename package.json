@@ -27,6 +27,8 @@
     "react-dom": "18.2.0",
     "react-gesture-handler": "0.0.5",
     "react-i18next": "^11.18.5",
+    "socket.io": "^4.5.2",
+    "socket.io-client": "^4.5.2",
     "usehooks-ts": "^2.6.0"
   },
   "devDependencies": {
