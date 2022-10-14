@@ -170,7 +170,9 @@ const ChatComponent = () => {
                   }
                   className={`${styles["custom-scroll"]} border text-black py-2 px-3 mb-2 rounded `}
                 >
-                  {t("User")} {message.userName} {t("Connected")}
+                  <p>
+                    {t("User")} {message.userName} {t("Connected")}
+                  </p>
                 </div>
               ) : (
                 <div
@@ -181,7 +183,9 @@ const ChatComponent = () => {
                   }
                   className={`${styles["custom-scroll"]}  border text-black py-2 px-3 mb-2 rounded custom-scroll`}
                 >
-                  <b>{message.userName}</b> : {message.message}
+                  <p className="break-words">
+                    <b>{message.userName}</b> : {message.message}
+                  </p>
                 </div>
               )}
             </div>

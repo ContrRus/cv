@@ -25,7 +25,12 @@ export default function handler(
       const message = `connected`;
       io.emit(
         "user-connected",
-        JSON.stringify({ userName: name, message, id: Date.now() })
+        JSON.stringify({
+          userName: name,
+          message,
+          id: Date.now(),
+          event: "connection",
+        })
       );
     });
     socket.on("send-message", (msg) => {
