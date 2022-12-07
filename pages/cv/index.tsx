@@ -43,7 +43,7 @@ const CvPage = () => {
           <div className="bg-white text-base flex h-min my-auto items-center justify-center rounded  px-2 py-2 relative ">
             <p className="text-lg font-medium text-center">
               {t("CV_introtext1")}
-              {t("CV_introtext2")}
+              {/* {t("CV_introtext2")}
               <a
                 className="text-blue-500"
                 href="https://dict-front.herokuapp.com/"
@@ -52,7 +52,7 @@ const CvPage = () => {
                 <span className="ml-1 mr-1"> {t("CV_introtext3")}</span>
               </a>
               {t("CV_introtext4")}
-              {t("CV_introtext5")}
+              {t("CV_introtext5")} */}
             </p>
           </div>
         </header>
