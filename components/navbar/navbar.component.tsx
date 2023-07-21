@@ -69,13 +69,13 @@ export const NavBarComponent = () => {
                 </button>
               </Link>
             </li>
-            <li className="ml-2">
+            {/* <li className="ml-2">
               <Link href="/chat">
                 <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
                   {t("Simple_Chat")}
                 </button>
               </Link>
-            </li>
+            </li> */}
             <li className="ml-2">
               <Link href="/infinite-scroll">
                 <button className="border px-2  text-2xl bg-mainBlue text-white hover:text-mainBlue hover:bg-white">
@@ -224,7 +224,7 @@ export const NavBarComponent = () => {
                   </button>
                 </Link>
               </li>
-              <li className="ml-2">
+              {/* <li className="ml-2">
                 <Link href="/chat">
                   <button
                     className="border px-2 text-white text-5xl "
@@ -236,7 +236,7 @@ export const NavBarComponent = () => {
                     {t("Simple_Chat")}
                   </button>
                 </Link>
-              </li>
+              </li> */}
               <li className="ml-2">
                 <Link href="/infinite-scroll">
                   <button
